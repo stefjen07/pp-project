@@ -1,4 +1,4 @@
-package org.example.coder;
+package com.stefjen07.decoder;
 
 public interface UnkeyedDecodingContainer {
     String[] getCodingPath();

@@ -1,4 +1,4 @@
-package org.example.xml;
+package com.stefjen07.xml;
 
 public class KeyValue {
     String key, value;
@@ -6,5 +6,9 @@ public class KeyValue {
     public KeyValue(String key, String value) {
         this.key = key;
         this.value = value;
+    }
+
+    public String getXML() {
+        return "<" + key + ">" + value + "</" + key + ">";
     }
 }

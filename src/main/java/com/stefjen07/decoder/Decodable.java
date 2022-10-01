@@ -1,4 +1,4 @@
-package org.example.coder;
+package com.stefjen07.decoder;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

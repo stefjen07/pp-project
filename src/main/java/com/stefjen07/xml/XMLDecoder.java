@@ -1,12 +1,12 @@
-package org.example.xml;
+package com.stefjen07.xml;
 
-import org.example.coder.*;
+import com.stefjen07.decoder.*;
 
 import java.lang.reflect.Field;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class XmlDecoder implements Decoder {
+public class XMLDecoder implements Decoder {
     public class KeyedContainer implements KeyedDecodingContainer {
         String[] raws;
         String[] codingPath;
@@ -45,7 +45,7 @@ public class XmlDecoder implements Decoder {
 
         @Override
         public Object decode(String key, Class<?> type) {
-            var decoder = new XmlDecoder(getRaw(key));
+            var decoder = new XMLDecoder(getRaw(key));
             return decoder.decode(type);
         }
     }
@@ -77,7 +77,7 @@ public class XmlDecoder implements Decoder {
 
         @Override
         public Object decode(Class<?> type) {
-            var decoder = new XmlDecoder(raws[currentIndex], codingPath);
+            var decoder = new XMLDecoder(raws[currentIndex], codingPath);
             currentIndex += 1;
             return decoder.decode(type);
         }
@@ -144,12 +144,12 @@ public class XmlDecoder implements Decoder {
     String raw;
     String[] codingPath;
 
-    XmlDecoder(String raw, String[] codingPath) {
+    XMLDecoder(String raw, String[] codingPath) {
         this.raw = raw;
         this.codingPath = codingPath;
     }
 
-    XmlDecoder(String raw) { this(raw, new String[0]); }
+    XMLDecoder(String raw) { this(raw, new String[0]); }
 
     public static KeyValue getKeyValue(String text) {
         AtomicReference<String> key = new AtomicReference<>("");
