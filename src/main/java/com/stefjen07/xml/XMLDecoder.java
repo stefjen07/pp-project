@@ -7,14 +7,14 @@ import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class XMLDecoder implements Decoder {
-    public class KeyedContainer implements KeyedDecodingContainer {
+    public static class KeyedContainer implements KeyedDecodingContainer {
         String[] raws;
         String[] codingPath;
         String[] allKeys;
 
         KeyedContainer(String raw, String[] codingPath) {
             this.codingPath = codingPath;
-            this.raws = (String[]) separate(raw).toArray();
+            this.raws = separate(raw).toArray(new String[0]);
             this.allKeys = (String[]) Arrays.stream(raws).map(rawElement -> {
                String key = getKeyValue(rawElement).key;
                return key;
@@ -50,7 +50,7 @@ public class XMLDecoder implements Decoder {
         }
     }
 
-    public class UnkeyedContainer implements UnkeyedDecodingContainer {
+    public static class UnkeyedContainer implements UnkeyedDecodingContainer {
         String[] raws;
         String[] codingPath;
         int currentIndex = 0;
@@ -123,15 +123,13 @@ public class XMLDecoder implements Decoder {
                     return result;
                 }
 
-                if (type.isPrimitive()) {
-                    if( Boolean.class == type ) return Boolean.parseBoolean( raw );
-                    if( Byte.class == type ) return Byte.parseByte( raw );
-                    if( Short.class == type ) return Short.parseShort( raw );
-                    if( Integer.class == type ) return Integer.parseInt( raw );
-                    if( Long.class == type ) return Long.parseLong( raw );
-                    if( Float.class == type ) return Float.parseFloat( raw );
-                    if( Double.class == type ) return Double.parseDouble( raw );
-                }
+                if( Boolean.class == type ) return Boolean.parseBoolean( raw );
+                if( Byte.class == type ) return Byte.parseByte( raw );
+                if( Short.class == type ) return Short.parseShort( raw );
+                if( Integer.class == type ) return Integer.parseInt( raw );
+                if( Long.class == type ) return Long.parseLong( raw );
+                if( Float.class == type ) return Float.parseFloat( raw );
+                if( Double.class == type ) return Double.parseDouble( raw );
 
             } catch(Exception e) {
                 e.printStackTrace();
@@ -149,7 +147,7 @@ public class XMLDecoder implements Decoder {
         this.codingPath = codingPath;
     }
 
-    XMLDecoder(String raw) { this(raw, new String[0]); }
+    public XMLDecoder(String raw) { this(raw, new String[0]); }
 
     public static KeyValue getKeyValue(String text) {
         AtomicReference<String> key = new AtomicReference<>("");
@@ -200,7 +198,7 @@ public class XMLDecoder implements Decoder {
         AtomicReference<String> currentRaw = new AtomicReference<>("");
 
         text.chars().forEach(character -> {
-            currentRaw.set(currentRaw.get() + String.valueOf((char) character));
+            concat(currentRaw, (char) character);
 
             switch(character) {
                 case '<':
@@ -224,7 +222,7 @@ public class XMLDecoder implements Decoder {
                     }
                 default:
                     if(currentTag.get().charAt(currentTag.get().length() - 1) != '>' && currentTag.get().charAt(0) == '<') {
-                        currentTag.set(currentTag.get() + String.valueOf(character));
+                        concat(currentTag, (char) character);
                     }
             }
         });

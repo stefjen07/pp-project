@@ -4,26 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a9359e2-ebbe-4844-b944-c193edca4340" name="Changes" comment="XML Decoder">
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/encoder/Encodable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/encoder/Encoder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/encoder/EncodingContainer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/encoder/KeyedEncodingContainer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/encoder/SingleValueEncodingContainer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/encoder/UnkeyedEncodingContainer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLEncoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="6a9359e2-ebbe-4844-b944-c193edca4340" name="Changes" comment="Unit tests">
+      <change afterPath="$PROJECT_DIR$/src/main/test/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/test/XMLDecoderTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/test/XMLEncoderTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/coder/Decodable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/decoder/Decodable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/coder/Decoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/decoder/Decoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/coder/KeyedDecodingContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/decoder/KeyedDecodingContainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/coder/SingleValueDecodingContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/decoder/SingleValueDecodingContainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/coder/UnkeyedDecodingContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/decoder/UnkeyedDecodingContainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/xml/KeyValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/KeyValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/xml/XmlDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLDecoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLDecoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLEncoder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,8 +21,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="AnnotationType" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -60,6 +47,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -70,10 +61,13 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "MavenSettings"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.pp_project">
+  <component name="RunManager" selected="JUnit.XMLEncoderTests">
     <configuration name="pp_project" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="pp_project" />
@@ -81,7 +75,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="pp_project [pp_project]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+    <configuration name="XMLDecoderTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pp-project" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="XMLDecoderTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="XMLEncoderTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pp-project" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="XMLEncoderTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="pp_project [test]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
         <option name="myRunnerSettings" />
@@ -92,7 +104,7 @@
             </option>
             <option name="goals">
               <list>
-                <option value="pp_project" />
+                <option value="test" />
               </list>
             </option>
             <option name="pomFileName" />
@@ -108,8 +120,16 @@
     </configuration>
     <list>
       <item itemvalue="Application.pp_project" />
-      <item itemvalue="Maven.pp_project [pp_project]" />
+      <item itemvalue="JUnit.XMLDecoderTests" />
+      <item itemvalue="JUnit.XMLEncoderTests" />
+      <item itemvalue="Maven.pp_project [test]" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.XMLEncoderTests" />
+        <item itemvalue="JUnit.XMLDecoderTests" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -121,8 +141,17 @@
       <updated>1664619314248</updated>
       <workItem from="1664619316045" duration="13654000" />
       <workItem from="1664638683876" duration="859000" />
-      <workItem from="1664652707155" duration="2200000" />
+      <workItem from="1664652707155" duration="2338000" />
+      <workItem from="1664829282710" duration="2218000" />
     </task>
+    <task id="LOCAL-00001" summary="XML Encoder">
+      <created>1664654970120</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1664654970120</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,6 +170,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="XML Decoder" />
-    <option name="LAST_COMMIT_MESSAGE" value="XML Decoder" />
+    <MESSAGE value="XML Encoder" />
+    <MESSAGE value="Unit tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Unit tests" />
   </component>
 </project>

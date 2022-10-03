@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class XMLEncoder implements Encoder {
-    class KeyedContainer implements KeyedEncodingContainer {
+    static class KeyedContainer implements KeyedEncodingContainer {
         String[] codingPath;
         List<String> raws;
         int level;
@@ -37,7 +37,7 @@ public class XMLEncoder implements Encoder {
         }
     }
 
-    class UnkeyedContainer implements UnkeyedEncodingContainer {
+    static class UnkeyedContainer implements UnkeyedEncodingContainer {
         String[] codingPath;
         int count;
         List<String> raws;
@@ -67,7 +67,7 @@ public class XMLEncoder implements Encoder {
         }
     }
 
-    class SingleValueContainer implements SingleValueEncodingContainer {
+    static class SingleValueContainer implements SingleValueEncodingContainer {
         String[] codingPath;
         String raw = "";
         int level;
@@ -103,6 +103,11 @@ public class XMLEncoder implements Encoder {
         this.level = level;
     }
 
+    public XMLEncoder() {
+        this.codingPath = new String[0];
+        this.level = 0;
+    }
+
     @Override
     public KeyedEncodingContainer container() {
         return new KeyedContainer(codingPath, level);
@@ -120,6 +125,8 @@ public class XMLEncoder implements Encoder {
 
     @Override
     public String encode(Object object) {
-        return null;
+        var container = singleValueContainer();
+        container.encode(object);
+        return container.getRaw();
     }
 }
