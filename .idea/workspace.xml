@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a9359e2-ebbe-4844-b944-c193edca4340" name="Changes" comment="Unit tests">
-      <change afterPath="$PROJECT_DIR$/src/main/test/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/test/XMLDecoderTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/test/XMLEncoderTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/arithmetic/ArithmeticExpression.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/arithmetic/ArithmeticParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/arithmetic/Operator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/arithmetic/SpecialCharacter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/test/ArithmeticTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLEncoder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +22,7 @@
       <list>
         <option value="AnnotationType" />
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -45,29 +46,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/yauheni/Documents/GitHub/pp-project",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "MavenSettings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/yauheni/Documents/GitHub/pp-project&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="JUnit.XMLEncoderTests">
+}</component>
+  <component name="RunManager" selected="Application.pp_project">
     <configuration name="pp_project" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="pp_project" />
@@ -76,9 +77,10 @@
       </method>
     </configuration>
     <configuration name="XMLDecoderTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pp-project" />
+      <module name="pp_project" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="XMLDecoderTests" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -126,8 +128,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.XMLEncoderTests" />
         <item itemvalue="JUnit.XMLDecoderTests" />
+        <item itemvalue="JUnit.XMLEncoderTests" />
       </list>
     </recent_temporary>
   </component>
@@ -143,6 +145,8 @@
       <workItem from="1664638683876" duration="859000" />
       <workItem from="1664652707155" duration="2338000" />
       <workItem from="1664829282710" duration="2218000" />
+      <workItem from="1664867816321" duration="753000" />
+      <workItem from="1664966351779" duration="4245000" />
     </task>
     <task id="LOCAL-00001" summary="XML Encoder">
       <created>1664654970120</created>
