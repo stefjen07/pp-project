@@ -10,4 +10,12 @@ public class XMLDecoderTests {
         Integer result = (Integer) decoder.decode(Integer.class);
         Assert.assertEquals(25, result.intValue());
     }
+
+    @Test
+    public void decodeEmptyArray() {
+        Decoder decoder = new XMLDecoder("");
+        Object[] result = (Object[]) decoder.decode(Object[].class);
+        Object[] expected = {};
+        Assert.assertArrayEquals(expected, result);
+    }
 }

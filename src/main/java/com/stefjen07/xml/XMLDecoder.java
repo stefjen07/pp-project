@@ -120,7 +120,7 @@ public class XMLDecoder implements Decoder {
                         result.add(container.decode(type.componentType()));
                     }
 
-                    return result;
+                    return result.toArray();
                 }
 
                 if( Boolean.class == type ) return Boolean.parseBoolean( raw );

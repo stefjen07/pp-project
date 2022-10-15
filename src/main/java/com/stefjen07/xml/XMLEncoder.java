@@ -2,6 +2,7 @@ package com.stefjen07.xml;
 
 import com.stefjen07.encoder.*;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -125,8 +126,28 @@ public class XMLEncoder implements Encoder {
 
     @Override
     public String encode(Object object) {
-        var container = singleValueContainer();
-        container.encode(object);
-        return container.getRaw();
+        var type = object.getClass();
+
+        if(type.isArray()) {
+            var container = unkeyedContainer();
+            container.encode(object);
+            return container.getRaw();
+        } else if( Boolean.class == type || Byte.class == type || Short.class == type || Integer.class == type || Long.class == type || Float.class == type || Double.class == type) {
+            var container = singleValueContainer();
+            container.encode(object);
+            return container.getRaw();
+        } else {
+            var container = container();
+
+            try {
+                for (Field field : type.getFields()) {
+                    container.encode(field.getName(), field.get(object));
+                }
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
+
+            return container.getRaw();
+        }
     }
 }

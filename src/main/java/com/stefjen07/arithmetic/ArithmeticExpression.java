@@ -1,14 +1,14 @@
 package com.stefjen07.arithmetic;
 
 public class ArithmeticExpression {
-    int value;
+    double value;
     boolean isConstant;
 
     ArithmeticExpression operand1;
     ArithmeticExpression operand2;
     Operator operator;
 
-    ArithmeticExpression(int value) {
+    ArithmeticExpression(double value) {
         this.value = value;
         this.isConstant = true;
     }
@@ -19,7 +19,7 @@ public class ArithmeticExpression {
         this.operator = operator;
     }
 
-    public int getValue() {
+    public double getValue() {
         return isConstant ? value : switch (operator) {
             case add -> operand1.getValue() + operand2.getValue();
             case subtract -> operand1.getValue() - operand2.getValue();
