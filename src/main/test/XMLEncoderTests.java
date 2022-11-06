@@ -29,16 +29,16 @@ public class XMLEncoderTests {
 
         Encoder encoder = new XMLEncoder();
         String result = encoder.encode(user);
-        Assert.assertEquals("", result);
+        Assert.assertEquals("<name>Eugene</name><password>123456</password>", result);
     }
 
     @Test
     public void encodeArray() {
-        List<User> users = new ArrayList<User>();
+        List<User> users = new ArrayList<>();
         users.add(new User("Eugene", "123456"));
 
         Encoder encoder = new XMLEncoder();
         String result = encoder.encode(users);
-        Assert.assertEquals("", result);
+        Assert.assertEquals("<User><name>Eugene</name><password>123456</password></User>", result);
     }
 }

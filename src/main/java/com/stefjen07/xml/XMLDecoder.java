@@ -5,20 +5,18 @@ import com.stefjen07.decoder.*;
 import java.lang.reflect.Field;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.stream.Collectors;
 
 public class XMLDecoder implements Decoder {
     public static class KeyedContainer implements KeyedDecodingContainer {
-        String[] raws;
+        List<String> raws;
         String[] codingPath;
-        String[] allKeys;
+        List<String> allKeys;
 
         KeyedContainer(String raw, String[] codingPath) {
             this.codingPath = codingPath;
-            this.raws = separate(raw).toArray(new String[0]);
-            this.allKeys = (String[]) Arrays.stream(raws).map(rawElement -> {
-               String key = getKeyValue(rawElement).key;
-               return key;
-            }).toArray();
+            this.raws = separate(raw);
+            this.allKeys = raws.stream().map(rawElement -> getKeyValue(rawElement).key).collect(Collectors.toList());
         }
 
         String getRaw(String key) {
@@ -40,7 +38,7 @@ public class XMLDecoder implements Decoder {
 
         @Override
         public String[] getAllKeys() {
-            return allKeys;
+            return (String[]) allKeys.toArray();
         }
 
         @Override
@@ -57,7 +55,12 @@ public class XMLDecoder implements Decoder {
 
         UnkeyedContainer(String raw, String[] codingPath) {
             this.codingPath = codingPath;
-            this.raws = (String[]) separate(raw).stream().map(rawElement -> getKeyValue(rawElement).value).toArray();
+
+            try {
+                this.raws = (String[]) separate(raw).stream().map(rawElement -> getKeyValue(rawElement).value).toArray();
+            } catch(Exception e) {
+                this.raws = new String[0];
+            }
         }
 
         @Override
@@ -101,7 +104,7 @@ public class XMLDecoder implements Decoder {
         public Object decode(Class<?> type) {
             try {
                 if (type.isAnnotationPresent(Decodable.class)) {
-                    Object result = type.getConstructor().newInstance();
+                    Object result = type.getDeclaredConstructor().newInstance();
 
                     var container = container();
                     for (Field field : type.getDeclaredFields()) {
@@ -130,6 +133,7 @@ public class XMLDecoder implements Decoder {
                 if( Long.class == type ) return Long.parseLong( raw );
                 if( Float.class == type ) return Float.parseFloat( raw );
                 if( Double.class == type ) return Double.parseDouble( raw );
+                if(String.class == type) return raw;
 
             } catch(Exception e) {
                 e.printStackTrace();
@@ -149,12 +153,12 @@ public class XMLDecoder implements Decoder {
 
     public XMLDecoder(String raw) { this(raw, new String[0]); }
 
-    public static KeyValue getKeyValue(String text) {
+    public static KeyValue getKeyValue(String text) throws RuntimeException {
         AtomicReference<String> key = new AtomicReference<>("");
         AtomicReference<String> value = new AtomicReference<>("");
 
         text.chars().forEach(character -> {
-            if(getLastChar(key.get()) == '>') {
+            if(!key.get().isEmpty() && getLastChar(key.get()) == '>') {
                 concat(value, (char) character);
             } else if(character == '<' && key.get().isEmpty()) {
                 concat(key, '<');
@@ -203,8 +207,9 @@ public class XMLDecoder implements Decoder {
             switch(character) {
                 case '<':
                     currentTag.set("<");
+                    break;
                 case '>':
-                    if(currentTag.get().charAt(1) == '/' && !tagDeque.isEmpty()) {
+                    if(currentTag.get().length() > 1 && currentTag.get().charAt(1) == '/' && !tagDeque.isEmpty()) {
                         tagDeque.pop();
 
                         if(!tagDeque.isEmpty()) {
@@ -220,10 +225,12 @@ public class XMLDecoder implements Decoder {
                         currentTag.set(currentTag.get() + ">");
                         tagDeque.add(currentTag.get());
                     }
+                    break;
                 default:
                     if(currentTag.get().charAt(currentTag.get().length() - 1) != '>' && currentTag.get().charAt(0) == '<') {
                         concat(currentTag, (char) character);
                     }
+                    break;
             }
         });
 

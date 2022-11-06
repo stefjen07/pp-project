@@ -4,7 +4,9 @@ import com.stefjen07.encoder.*;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class XMLEncoder implements Encoder {
     static class KeyedContainer implements KeyedEncodingContainer {
@@ -41,7 +43,7 @@ public class XMLEncoder implements Encoder {
     static class UnkeyedContainer implements UnkeyedEncodingContainer {
         String[] codingPath;
         int count;
-        List<String> raws;
+        List<KeyValue> raws;
         int level;
 
         UnkeyedContainer(String[] codingPath, int level) {
@@ -58,13 +60,13 @@ public class XMLEncoder implements Encoder {
             var container = encoder.singleValueContainer();
             container.encode(object);
 
-            raws.add(encoder.getRaw());
+            raws.add(new KeyValue(object.getClass().getTypeName(), encoder.getRaw()));
             count += 1;
         }
 
         @Override
         public String getRaw() {
-            return String.join("", (String[]) raws.stream().map(raw -> new KeyValue("item", raw).getXML()).toArray());
+            return raws.stream().map(KeyValue::getXML).collect(Collectors.joining(""));
         }
     }
 
@@ -80,7 +82,7 @@ public class XMLEncoder implements Encoder {
 
         @Override
         public void encode(Object object) {
-            raw = object.toString();
+            raw = new XMLEncoder().encode(object);
         }
 
         @Override
@@ -111,36 +113,47 @@ public class XMLEncoder implements Encoder {
 
     @Override
     public KeyedEncodingContainer container() {
-        return new KeyedContainer(codingPath, level);
+        KeyedEncodingContainer container = new KeyedContainer(codingPath, level);
+        this.container = container;
+        return container;
     }
 
     @Override
     public UnkeyedEncodingContainer unkeyedContainer() {
-        return new UnkeyedContainer(codingPath, level);
+        UnkeyedEncodingContainer container = new UnkeyedContainer(codingPath, level);
+        this.container = container;
+        return container;
     }
 
     @Override
     public SingleValueEncodingContainer singleValueContainer() {
-        return new SingleValueContainer(codingPath, level);
+        SingleValueEncodingContainer container = new SingleValueContainer(codingPath, level);
+        this.container = container;
+        return container;
     }
 
     @Override
     public String encode(Object object) {
         var type = object.getClass();
 
-        if(type.isArray()) {
+        if(Collection.class.isAssignableFrom(type) || type.isArray()) {
             var container = unkeyedContainer();
-            container.encode(object);
+
+            for(var element: (Collection<Object>) object) {
+                container.encode(element);
+            }
+
             return container.getRaw();
-        } else if( Boolean.class == type || Byte.class == type || Short.class == type || Integer.class == type || Long.class == type || Float.class == type || Double.class == type) {
-            var container = singleValueContainer();
-            container.encode(object);
-            return container.getRaw();
+        } else if( Boolean.class == type || Byte.class == type || Short.class == type || Integer.class == type || Long.class == type || Float.class == type || Double.class == type || String.class == type) {
+            return object.toString();
         } else {
             var container = container();
 
             try {
-                for (Field field : type.getFields()) {
+                for (Field field : type.getDeclaredFields()) {
+                    if(!field.canAccess(object))
+                        field.setAccessible(true);
+
                     container.encode(field.getName(), field.get(object));
                 }
             } catch(Exception e) {
