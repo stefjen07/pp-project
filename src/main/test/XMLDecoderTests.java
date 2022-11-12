@@ -27,4 +27,16 @@ public class XMLDecoderTests {
         Assert.assertEquals("Eugene", result.name);
         Assert.assertEquals("123456", result.password);
     }
+
+    @Test
+    public void decodeArray() {
+        Decoder decoder = new XMLDecoder("<User><name>Eugene</name><password>123456</password></User>");
+        Object[] result = (Object[]) decoder.decode(User[].class);
+
+        User[] expectation = {
+                new User("Eugene", "123456")
+        };
+
+        Assert.assertArrayEquals(result, expectation);
+    }
 }
