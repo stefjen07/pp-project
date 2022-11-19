@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a9359e2-ebbe-4844-b944-c193edca4340" name="Changes" comment="JSON encoding and decoding">
-      <change afterPath="$PROJECT_DIR$/src/main/test/JSONDecoderTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/test/JSONEncoderTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/json/JSONDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/json/JSONDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/json/JSONEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/json/JSONEncoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/KeyValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/KeyValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLEncoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/XMLDecoderTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/XMLDecoderTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,7 +212,7 @@
       <workItem from="1667980432291" duration="927000" />
       <workItem from="1668241035637" duration="7355000" />
       <workItem from="1668845424506" duration="364000" />
-      <workItem from="1668846483167" duration="5371000" />
+      <workItem from="1668846483167" duration="6306000" />
     </task>
     <task id="LOCAL-00001" summary="XML Encoder">
       <created>1664654970120</created>
@@ -257,7 +249,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668250760554</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="JSON encoding and decoding">
+      <created>1668860359486</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1668860359486</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

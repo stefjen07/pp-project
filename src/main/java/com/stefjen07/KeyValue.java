@@ -1,7 +1,7 @@
-package com.stefjen07.xml;
+package com.stefjen07;
 
 public class KeyValue {
-    String key, value;
+    public String key, value;
 
     public KeyValue(String key, String value) {
         this.key = key;
@@ -11,4 +11,5 @@ public class KeyValue {
     public String getXML() {
         return "<" + key + ">" + value + "</" + key + ">";
     }
+    public String getJSON() { return key + ":" + value; }
 }

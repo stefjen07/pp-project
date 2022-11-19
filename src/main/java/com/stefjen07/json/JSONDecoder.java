@@ -1,14 +1,18 @@
-package com.stefjen07.xml;
+package com.stefjen07.json;
 
-import com.stefjen07.KeyValue;
 import com.stefjen07.decoder.*;
+import com.stefjen07.KeyValue;
 
 import java.lang.reflect.Field;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
-public class XMLDecoder implements Decoder {
+public class JSONDecoder implements Decoder {
     public static class KeyedContainer implements KeyedDecodingContainer {
         List<String> raws;
         String[] codingPath;
@@ -44,7 +48,7 @@ public class XMLDecoder implements Decoder {
 
         @Override
         public Object decode(String key, Class<?> type) {
-            var decoder = new XMLDecoder(getRaw(key));
+            var decoder = new JSONDecoder(getRaw(key));
             return decoder.decode(type);
         }
     }
@@ -58,7 +62,7 @@ public class XMLDecoder implements Decoder {
             this.codingPath = codingPath;
 
             try {
-                this.raws = separate(raw).stream().map(rawElement -> getKeyValue(rawElement).value).collect(Collectors.toList());
+                this.raws = new ArrayList<>(separate(raw));
             } catch(Exception e) {
                 this.raws = new ArrayList<>();
             }
@@ -81,13 +85,13 @@ public class XMLDecoder implements Decoder {
 
         @Override
         public Object decode(Class<?> type) {
-            var decoder = new XMLDecoder(raws.get(currentIndex), codingPath);
+            var decoder = new JSONDecoder(raws.get(currentIndex), codingPath);
             currentIndex += 1;
             return decoder.decode(type);
         }
     }
 
-    public class SingleValueContainer implements SingleValueDecodingContainer {
+    class SingleValueContainer implements SingleValueDecodingContainer {
         String raw;
         String[] codingPath;
 
@@ -127,14 +131,19 @@ public class XMLDecoder implements Decoder {
                     return result.toArray();
                 }
 
-                if( Boolean.class == type ) return Boolean.parseBoolean( raw );
-                if( Byte.class == type ) return Byte.parseByte( raw );
-                if( Short.class == type ) return Short.parseShort( raw );
-                if( Integer.class == type ) return Integer.parseInt( raw );
-                if( Long.class == type ) return Long.parseLong( raw );
-                if( Float.class == type ) return Float.parseFloat( raw );
-                if( Double.class == type ) return Double.parseDouble( raw );
-                if(String.class == type) return raw;
+                if(Boolean.class == type) return Boolean.parseBoolean( raw );
+                if(Byte.class == type) return Byte.parseByte( raw );
+                if(Short.class == type) return Short.parseShort( raw );
+                if(Integer.class == type) return Integer.parseInt( raw );
+                if(Long.class == type) return Long.parseLong( raw );
+                if(Float.class == type) return Float.parseFloat( raw );
+                if(Double.class == type) return Double.parseDouble( raw );
+                if(String.class == type) {
+                    AtomicReference<String> result = new AtomicReference<>(raw);
+                    removeFirst(result, 1);
+                    removeLast(result, 1);
+                    return result.get();
+                }
 
             } catch(Exception e) {
                 e.printStackTrace();
@@ -147,40 +156,12 @@ public class XMLDecoder implements Decoder {
     String raw;
     String[] codingPath;
 
-    XMLDecoder(String raw, String[] codingPath) {
+    JSONDecoder(String raw, String[] codingPath) {
         this.raw = raw;
         this.codingPath = codingPath;
     }
 
-    public XMLDecoder(String raw) { this(raw, new String[0]); }
-
-    public static KeyValue getKeyValue(String text) throws RuntimeException {
-        AtomicReference<String> key = new AtomicReference<>("");
-        AtomicReference<String> value = new AtomicReference<>("");
-
-        text.chars().forEach(character -> {
-            if(!key.get().isEmpty() && getLastChar(key.get()) == '>') {
-                concat(value, (char) character);
-            } else if(character == '<' && key.get().isEmpty()) {
-                concat(key, '<');
-            } else if(!key.get().isEmpty()) {
-                concat(key, (char) character);
-            }
-        });
-
-        if(key.get().length() <= 2) {
-            throw new RuntimeException();
-        }
-
-        removeFirst(key, 1);
-        removeLast(key, 1);
-
-        return new KeyValue(key.get(), value.get());
-    }
-
-    public static char getLastChar(String text) {
-        return text.charAt(text.length() - 1);
-    }
+    public JSONDecoder(String raw) { this(raw, new String[0]); }
 
     public static void concat(AtomicReference<String> text, char character) {
         text.set(text.get() + character);
@@ -198,42 +179,77 @@ public class XMLDecoder implements Decoder {
     public static List<String> separate(String text) {
         ArrayList<String> result = new ArrayList<>();
 
-        Stack<String> tagDeque = new Stack<>();
-        AtomicReference<String> currentTag = new AtomicReference<>("");
         AtomicReference<String> currentRaw = new AtomicReference<>("");
+        AtomicInteger level = new AtomicInteger();
 
         text.chars().forEach(character -> {
-            concat(currentRaw, (char) character);
-
             switch (character) {
-                case '<' -> currentTag.set("<");
-                case '>' -> {
-                    if (currentTag.get().length() > 1 && currentTag.get().charAt(1) == '/' && !tagDeque.isEmpty()) {
-                        tagDeque.pop();
-
-                        if (!tagDeque.isEmpty()) {
-                            currentTag.set(tagDeque.peek());
-                        } else {
-                            removeLast(currentRaw, currentTag.get().length() + 1);
-                            result.add(currentRaw.get());
-
-                            currentRaw.set("");
-                            currentTag.set("");
-                        }
+                case '{', '[' -> {
+                    level.getAndIncrement();
+                    if(level.get() == 1) {
+                        currentRaw.set("");
                     } else {
-                        concat(currentTag, '>');
-                        tagDeque.add(currentTag.get());
+                        concat(currentRaw, (char) character);
                     }
                 }
-                default -> {
-                    if (getLastChar(currentTag.get()) != '>' && currentTag.get().charAt(0) == '<') {
-                        concat(currentTag, (char) character);
+                case '}', ']' -> {
+                    level.getAndDecrement();
+                    if(level.get() == 0) {
+                        result.add(currentRaw.get().trim());
+                        currentRaw.set("");
+                    } else {
+                        concat(currentRaw, (char) character);
                     }
                 }
+                case ',' -> {
+                    if(level.get() == 1) {
+                        result.add(currentRaw.get().trim());
+                        currentRaw.set("");
+                    } else {
+                        concat(currentRaw, (char) character);
+                    }
+                }
+                default -> concat(currentRaw, (char) character);
             }
         });
 
         return result;
+    }
+
+    public static KeyValue getKeyValue(String text) throws RuntimeException {
+        AtomicReference<String> key = new AtomicReference<>("");
+        AtomicReference<String> value = new AtomicReference<>("");
+
+        AtomicBoolean isValueCurrent = new AtomicBoolean(false);
+        AtomicBoolean isTrimmingWhitespaces = new AtomicBoolean(true);
+
+        text.chars().forEach(character -> {
+            if(isValueCurrent.get()) {
+                if(isTrimmingWhitespaces.get()) {
+                    if(character != ' ') {
+                        isTrimmingWhitespaces.set(false);
+                        concat(value, (char) character);
+                    }
+                } else {
+                    concat(value, (char) character);
+                }
+            } else if(character == ':') {
+                isValueCurrent.set(true);
+            } else {
+                concat(key, (char) character);
+            }
+        });
+
+        if(key.get().length() < 1) {
+            throw new RuntimeException();
+        }
+
+        if(key.get().charAt(0) == '"') {
+            removeFirst(key, 1);
+            removeLast(key, 1);
+        }
+
+        return new KeyValue(key.get(), value.get());
     }
 
     @Override

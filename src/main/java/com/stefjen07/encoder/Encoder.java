@@ -5,5 +5,5 @@ public interface Encoder {
     UnkeyedEncodingContainer unkeyedContainer();
     SingleValueEncodingContainer singleValueContainer();
 
-    public String encode(Object object);
+    String encode(Object object);
 }

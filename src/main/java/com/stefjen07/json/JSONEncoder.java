@@ -1,4 +1,4 @@
-package com.stefjen07.xml;
+package com.stefjen07.json;
 
 import com.stefjen07.KeyValue;
 import com.stefjen07.encoder.*;
@@ -7,9 +7,8 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
-public class XMLEncoder implements Encoder {
+public class JSONEncoder implements Encoder {
     static class KeyedContainer implements KeyedEncodingContainer {
         String[] codingPath;
         List<String> raws;
@@ -27,24 +26,24 @@ public class XMLEncoder implements Encoder {
             System.arraycopy(codingPath, 0, newCodingPath, 0, codingPath.length);
             newCodingPath[codingPath.length] = key;
 
-            var encoder = new XMLEncoder(newCodingPath, level + 1);
+            var encoder = new JSONEncoder(newCodingPath, level + 1);
             var container = encoder.singleValueContainer();
             container.encode(object);
 
             var keyValue = new KeyValue(key, encoder.getRaw());
-            raws.add(keyValue.getXML());
+            raws.add(keyValue.getJSON());
         }
 
         @Override
         public String getRaw() {
-            return String.join("", raws);
+            return "{" + String.join(",", raws) + "}";
         }
     }
 
     static class UnkeyedContainer implements UnkeyedEncodingContainer {
         String[] codingPath;
         int count;
-        List<KeyValue> raws;
+        List<String> raws;
         int level;
 
         UnkeyedContainer(String[] codingPath, int level) {
@@ -56,18 +55,18 @@ public class XMLEncoder implements Encoder {
 
         @Override
         public void encode(Object object) {
-            var encoder = new XMLEncoder(codingPath, level+1);
+            var encoder = new JSONEncoder(codingPath, level+1);
 
             var container = encoder.singleValueContainer();
             container.encode(object);
 
-            raws.add(new KeyValue(object.getClass().getTypeName(), encoder.getRaw()));
+            raws.add(encoder.getRaw());
             count += 1;
         }
 
         @Override
         public String getRaw() {
-            return raws.stream().map(KeyValue::getXML).collect(Collectors.joining(""));
+            return "[" + String.join(",", raws) + "]";
         }
     }
 
@@ -83,7 +82,7 @@ public class XMLEncoder implements Encoder {
 
         @Override
         public void encode(Object object) {
-            raw = new XMLEncoder().encode(object);
+            raw = new JSONEncoder().encode(object);
         }
 
         @Override
@@ -102,12 +101,12 @@ public class XMLEncoder implements Encoder {
         return container.getRaw();
     }
 
-    XMLEncoder(String[] codingPath, int level) {
+    JSONEncoder(String[] codingPath, int level) {
         this.codingPath = codingPath;
         this.level = level;
     }
 
-    public XMLEncoder() {
+    public JSONEncoder() {
         this.codingPath = new String[0];
         this.level = 0;
     }
@@ -146,7 +145,11 @@ public class XMLEncoder implements Encoder {
 
             return container.getRaw();
         } else if( Boolean.class == type || Byte.class == type || Short.class == type || Integer.class == type || Long.class == type || Float.class == type || Double.class == type || String.class == type) {
-            return object.toString();
+            String result =  object.toString();
+            if(String.class == type) {
+                result = "\"" + result + "\"";
+            }
+            return result;
         } else {
             var container = container();
 

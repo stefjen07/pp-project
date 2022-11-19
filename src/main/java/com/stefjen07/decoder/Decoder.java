@@ -5,5 +5,5 @@ public interface Decoder {
     UnkeyedDecodingContainer unkeyedContainer();
     SingleValueDecodingContainer singleValueContainer();
 
-    public Object decode(Class<?> type);
+    Object decode(Class<?> type);
 }
