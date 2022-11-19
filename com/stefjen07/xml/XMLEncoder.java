@@ -1,5 +1,6 @@
 package com.stefjen07.xml;
 
+import com.stefjen07.KeyValue;
 import com.stefjen07.encoder.*;
 
 import java.lang.reflect.Field;
