@@ -4,31 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a9359e2-ebbe-4844-b944-c193edca4340" name="Changes" comment="Test fixed">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/arithmetic/ArithmeticExpression.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/arithmetic/ArithmeticParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/arithmetic/Operator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/arithmetic/SpecialCharacter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/decoder/Decodable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/decoder/Decoder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/decoder/KeyedDecodingContainer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/decoder/SingleValueDecodingContainer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/decoder/UnkeyedDecodingContainer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/encoder/Encodable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/encoder/Encoder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/encoder/EncodingContainer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/encoder/KeyedEncodingContainer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/encoder/SingleValueEncodingContainer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/encoder/UnkeyedEncodingContainer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/json/JSONDecoder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/json/JSONEncoder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/KeyValue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLDecoder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLEncoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="6a9359e2-ebbe-4844-b944-c193edca4340" name="Changes" comment="JSON encoding and decoding">
+      <change afterPath="$PROJECT_DIR$/src/main/test/JSONDecoderTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/test/JSONEncoderTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/json/JSONDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/json/JSONDecoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/json/JSONEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/json/JSONEncoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/KeyValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/KeyValue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLDecoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLEncoder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/test/XMLDecoderTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/XMLDecoderTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,7 +52,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "com.google.cloudcode.ide_session_index": "20221109_0002",
+    "com.google.cloudcode.ide_session_index": "20221119_0001",
     "last_opened_file_path": "/Users/yauheni/Documents/GitHub/pp-project",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -87,6 +71,9 @@
       <recent name="$PROJECT_DIR$/target/classes/com/stefjen07/decoder" />
       <recent name="$PROJECT_DIR$/target/classes" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.stefjen07" />
+    </key>
   </component>
   <component name="RunManager" selected="JUnit.AllTests">
     <configuration name="pp_project" type="Application" factoryName="Application">
@@ -99,7 +86,7 @@
       </method>
     </configuration>
     <configuration name="AllTests" type="JUnit" factoryName="JUnit">
-      <module name="pp_project" />
+      <module name="pp-project" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
@@ -109,7 +96,7 @@
       </method>
     </configuration>
     <configuration name="ArithmeticTests" type="JUnit" factoryName="JUnit">
-      <module name="pp_project" />
+      <module name="pp-project" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="PACKAGE_NAME" value="" />
@@ -120,8 +107,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="JSONDecoderTests" type="JUnit" factoryName="JUnit">
+      <module name="pp-project" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="JSONDecoderTests" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JSONEncoderTests" type="JUnit" factoryName="JUnit">
+      <module name="pp-project" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="JSONEncoderTests" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="XMLDecoderTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pp_project" />
+      <module name="pp-project" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="PACKAGE_NAME" value="" />
@@ -140,19 +147,6 @@
       <option name="MAIN_CLASS_NAME" value="XMLEncoderTests" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="pp-project" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="pp-project" />
-      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -184,7 +178,9 @@
     </configuration>
     <list>
       <item itemvalue="Application.pp_project" />
+      <item itemvalue="JUnit.JSONEncoderTests" />
       <item itemvalue="JUnit.AllTests" />
+      <item itemvalue="JUnit.JSONDecoderTests" />
       <item itemvalue="JUnit.ArithmeticTests" />
       <item itemvalue="JUnit.XMLDecoderTests" />
       <item itemvalue="JUnit.XMLEncoderTests" />
@@ -222,7 +218,9 @@
       <workItem from="1667765954915" duration="1003000" />
       <workItem from="1667766994114" duration="3262000" />
       <workItem from="1667980432291" duration="927000" />
-      <workItem from="1668241035637" duration="6676000" />
+      <workItem from="1668241035637" duration="7355000" />
+      <workItem from="1668845424506" duration="364000" />
+      <workItem from="1668846483167" duration="5371000" />
     </task>
     <task id="LOCAL-00001" summary="XML Encoder">
       <created>1664654970120</created>
@@ -252,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667770156221</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="XML array decoding fixed">
+      <created>1668250760554</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1668250760554</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,15 +282,22 @@
     <MESSAGE value="Arithmetic expression parser fixed" />
     <MESSAGE value="XML encoder and decoder fixed" />
     <MESSAGE value="Test fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test fixed" />
+    <MESSAGE value="XML array decoding fixed" />
+    <MESSAGE value="JSON encoding and decoding" />
+    <option name="LAST_COMMIT_MESSAGE" value="JSON encoding and decoding" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLDecoder.java</url>
-          <line>125</line>
+          <line>126</line>
           <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/stefjen07/json/JSONDecoder.java</url>
+          <line>64</line>
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -1,19 +1,19 @@
 import com.stefjen07.decoder.Decoder;
-import com.stefjen07.xml.XMLDecoder;
+import com.stefjen07.json.JSONDecoder;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class XMLDecoderTests {
+public class JSONDecoderTests {
     @Test
     public void decodeInteger() {
-        Decoder decoder = new XMLDecoder("25");
+        Decoder decoder = new JSONDecoder("25");
         Integer result = (Integer) decoder.decode(Integer.class);
         Assert.assertEquals(25, result.intValue());
     }
 
     @Test
     public void decodeEmptyArray() {
-        Decoder decoder = new XMLDecoder("");
+        Decoder decoder = new JSONDecoder("");
         Object[] result = (Object[]) decoder.decode(Object[].class);
         Object[] expected = {};
         Assert.assertArrayEquals(expected, result);
@@ -21,7 +21,7 @@ public class XMLDecoderTests {
 
     @Test
     public void decodeUser() {
-        Decoder decoder = new XMLDecoder("<name>Eugene</name><password>123456</password>");
+        Decoder decoder = new JSONDecoder("{name:\"Eugene\", password: \"123456\"}");
         User result = (User) decoder.decode(User.class);
 
         Assert.assertEquals("Eugene", result.name);
@@ -30,10 +30,11 @@ public class XMLDecoderTests {
 
     @Test
     public void decodeArray() {
-        Decoder decoder = new XMLDecoder("<User><name>Eugene</name><password>123456</password></User>");
+        Decoder decoder = new JSONDecoder("[{name:\"Eugene\", password: \"123456\"}, {name:\"Eugene\", password: \"123456\"}]");
         Object[] result = (Object[]) decoder.decode(User[].class);
 
         User[] expectation = {
+                new User("Eugene", "123456"),
                 new User("Eugene", "123456")
         };
 
