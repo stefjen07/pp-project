@@ -4,12 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a9359e2-ebbe-4844-b944-c193edca4340" name="Changes" comment="Encrypting and zipping">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/crypt/CryptPreset.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/crypt/CryptUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/zip/ZipUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/test/CryptTests.java" afterDir="false" />
+    <list default="true" id="6a9359e2-ebbe-4844-b944-c193edca4340" name="Changes" comment="Web service sketch and zip tests">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/ArithmeticController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/ArithmeticService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/dto/ArithmeticRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/dto/ArithmeticResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/model/ArithmeticEquation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/model/ArithmeticResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/test/ZipTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/zip/ZipUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/zip/ZipUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,11 +50,15 @@
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "com.google.cloudcode.ide_session_index": "20221210_0001",
+    "com.google.cloudcode.ide_session_index": "20221210_0004",
     "last_opened_file_path": "/Users/yauheni/Documents/GitHub/pp-project",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -71,7 +81,7 @@
       <recent name="com.stefjen07" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AllTests">
+  <component name="RunManager" selected="JUnit.ZipTests">
     <configuration name="pp_project" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -80,6 +90,9 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" requestIdentifier="#1" runType="Run single request">
+      <method v="2" />
     </configuration>
     <configuration name="AllTests" type="JUnit" factoryName="JUnit">
       <module name="pp-project" />
@@ -147,6 +160,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ZipTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pp-project" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ZipTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ZipTests.testZipUnzipRandomBytes" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pp-project" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ZipTests" />
+      <option name="METHOD_NAME" value="testZipUnzipRandomBytes" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="pp_project [test]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -172,18 +204,32 @@
       </MavenSettings>
       <method v="2" />
     </configuration>
+    <configuration name="Main" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="pp-project" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.stefjen07.Main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.pp_project" />
+      <item itemvalue="HTTP Request.generated-requests | #1" />
       <item itemvalue="JUnit.JSONEncoderTests" />
       <item itemvalue="JUnit.AllTests" />
       <item itemvalue="JUnit.JSONDecoderTests" />
       <item itemvalue="JUnit.ArithmeticTests" />
+      <item itemvalue="JUnit.ZipTests" />
+      <item itemvalue="JUnit.ZipTests.testZipUnzipRandomBytes" />
       <item itemvalue="JUnit.XMLDecoderTests" />
       <item itemvalue="JUnit.XMLEncoderTests" />
       <item itemvalue="Maven.pp_project [test]" />
+      <item itemvalue="Spring Boot.Main" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ZipTests" />
+        <item itemvalue="JUnit.ZipTests.testZipUnzipRandomBytes" />
+        <item itemvalue="HTTP Request.generated-requests | #1" />
         <item itemvalue="JUnit.XMLEncoderTests" />
         <item itemvalue="JUnit.XMLDecoderTests" />
       </list>
@@ -219,7 +265,7 @@
       <workItem from="1668846483167" duration="6306000" />
       <workItem from="1670056388036" duration="1768000" />
       <workItem from="1670230011798" duration="78000" />
-      <workItem from="1670654947328" duration="873000" />
+      <workItem from="1670654947328" duration="11862000" />
     </task>
     <task id="LOCAL-00001" summary="XML Encoder">
       <created>1664654970120</created>
@@ -263,7 +309,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668860359486</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Encrypting and zipping">
+      <created>1670655828957</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1670655828957</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -291,7 +344,8 @@
     <MESSAGE value="XML array decoding fixed" />
     <MESSAGE value="JSON encoding and decoding" />
     <MESSAGE value="Encrypting and zipping" />
-    <option name="LAST_COMMIT_MESSAGE" value="Encrypting and zipping" />
+    <MESSAGE value="Web service sketch and zip tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Web service sketch and zip tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
