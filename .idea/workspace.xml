@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a9359e2-ebbe-4844-b944-c193edca4340" name="Changes" comment="JSON encoding and decoding">
+    <list default="true" id="6a9359e2-ebbe-4844-b944-c193edca4340" name="Changes" comment="Encrypting and zipping">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/crypt/CryptPreset.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/crypt/CryptUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/zip/ZipUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/test/CryptTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +48,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "com.google.cloudcode.ide_session_index": "20221119_0001",
+    "com.google.cloudcode.ide_session_index": "20221210_0001",
     "last_opened_file_path": "/Users/yauheni/Documents/GitHub/pp-project",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -213,6 +217,9 @@
       <workItem from="1668241035637" duration="7355000" />
       <workItem from="1668845424506" duration="364000" />
       <workItem from="1668846483167" duration="6306000" />
+      <workItem from="1670056388036" duration="1768000" />
+      <workItem from="1670230011798" duration="78000" />
+      <workItem from="1670654947328" duration="873000" />
     </task>
     <task id="LOCAL-00001" summary="XML Encoder">
       <created>1664654970120</created>
@@ -283,7 +290,8 @@
     <MESSAGE value="Test fixed" />
     <MESSAGE value="XML array decoding fixed" />
     <MESSAGE value="JSON encoding and decoding" />
-    <option name="LAST_COMMIT_MESSAGE" value="JSON encoding and decoding" />
+    <MESSAGE value="Encrypting and zipping" />
+    <option name="LAST_COMMIT_MESSAGE" value="Encrypting and zipping" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
