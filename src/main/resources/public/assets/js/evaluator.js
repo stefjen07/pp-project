@@ -1,3 +1,12 @@
+function downloadURI(uri, name) {
+    let link = document.createElement("a");
+    link.download = name;
+    link.href = uri;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
 function submitForm() {
     const inputOpt = document.getElementById("inputopt");
     const outputOpt = document.getElementById("outputopt");
@@ -9,13 +18,30 @@ function submitForm() {
 
     const formData = new FormData();
 
+    const inputOptions = inputOpt.getElementsByTagName('option');
+    const outputOptions = outputOpt.getElementsByTagName('option');
+
+    let inputType = '', outputType = '';
+
+    for (let j = 0; j < inputOptions.length; j++) {
+        if(inputOptions[j].selected) {
+            inputType = inputOptions[j].value;
+        }
+    }
+
+    for (let j = 0; j < outputOptions.length; j++) {
+        if(outputOptions[j].selected) {
+            outputType = outputOptions[j].value;
+        }
+    }
+
     const parameters = new Blob([JSON.stringify({
-        inputType: inputOpt.getAttribute('value'),
-        inputEncryption: inputEnc.value,
-        inputArchivation: inputArc.value,
-        outputType: outputOpt.getAttribute('value'),
-        outputEncryption: outputEnc.value,
-        outputArchivation: outputArc.value
+        inputType: inputType,
+        inputEncryption: inputEnc.value === 'on',
+        inputArchivation: inputArc.value === 'on',
+        outputType: outputType,
+        outputEncryption: outputEnc.value === 'on',
+        outputArchivation: outputArc.value === 'on'
     })], { type: "application/json"});
 
     formData.append("request", filePicker.files[0]);
@@ -23,5 +49,21 @@ function submitForm() {
 
     const request = new XMLHttpRequest();
     request.open("POST", "/arithmetic/calculate");
+    request.onreadystatechange = function(){
+        if (request.readyState !== 4) return;
+        if (request.status !== 200 && request.status !== 304) {
+            alert('HTTP error ' + request.status);
+            return;
+        }
+
+        let responseType = 'text/plain';
+        let extension = 'txt';
+        if(outputType === 'json' || outputType === 'xml') {
+            responseType = 'application/' + outputType;
+            extension = outputType;
+        }
+
+        downloadURI('data:' + responseType + ';base64,' + btoa(request.responseText), 'results.' + extension);
+    }
     request.send(formData);
 }
