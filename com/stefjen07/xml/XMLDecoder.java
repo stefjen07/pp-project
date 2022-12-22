@@ -121,7 +121,7 @@ public class XMLDecoder implements Decoder {
                     var container = unkeyedContainer();
 
                     while(!container.isAtEnd()) {
-                        result.add(container.decode(type.componentType()));
+                        result.add(container.decode(type.getComponentType()));
                     }
 
                     return result.toArray();
@@ -206,8 +206,10 @@ public class XMLDecoder implements Decoder {
             concat(currentRaw, (char) character);
 
             switch (character) {
-                case '<' -> currentTag.set("<");
-                case '>' -> {
+                case '<':
+                    currentTag.set("<");
+                    break;
+                case '>':
                     if (currentTag.get().length() > 1 && currentTag.get().charAt(1) == '/' && !tagDeque.isEmpty()) {
                         tagDeque.pop();
 
@@ -224,12 +226,12 @@ public class XMLDecoder implements Decoder {
                         concat(currentTag, '>');
                         tagDeque.add(currentTag.get());
                     }
-                }
-                default -> {
+                    break;
+                default:
                     if (getLastChar(currentTag.get()) != '>' && currentTag.get().charAt(0) == '<') {
                         concat(currentTag, (char) character);
                     }
-                }
+                    break;
             }
         });
 

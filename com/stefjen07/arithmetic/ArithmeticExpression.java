@@ -20,11 +20,16 @@ public class ArithmeticExpression {
     }
 
     public double getValue() {
-        return isConstant ? value : switch (operator) {
-            case add -> operand1.getValue() + operand2.getValue();
-            case subtract -> operand1.getValue() - operand2.getValue();
-            case multiply -> operand1.getValue() * operand2.getValue();
-            case divide -> operand1.getValue() / operand2.getValue();
-        };
+        if(isConstant)
+            return value;
+
+
+        switch (operator) {
+            case add: return operand1.getValue() + operand2.getValue();
+            case subtract: return operand1.getValue() - operand2.getValue();
+            case multiply: return operand1.getValue() * operand2.getValue();
+            case divide: return operand1.getValue() / operand2.getValue();
+            default: throw new RuntimeException();
+        }
     }
 }

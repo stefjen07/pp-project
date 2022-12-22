@@ -2,6 +2,7 @@ package com.stefjen07.crypt;
 
 import javax.crypto.*;
 import javax.crypto.spec.IvParameterSpec;
+import java.math.BigInteger;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -14,12 +15,13 @@ public class CryptUtil {
 
     public CryptUtil(CryptPreset preset) throws NoSuchAlgorithmException, NoSuchPaddingException {
         switch(preset) {
-            case aes -> {
+            case aes:
                 keyGenerator = KeyGenerator.getInstance("AES");
                 keyGenerator.init(128);
+                //System.out.println(new BigInteger(keyGenerator.generateKey().getEncoded()).toString(16));
 
                 cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-            }
+                break;
         }
     }
 

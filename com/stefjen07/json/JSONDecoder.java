@@ -125,7 +125,7 @@ public class JSONDecoder implements Decoder {
                     var container = unkeyedContainer();
 
                     while(!container.isAtEnd()) {
-                        result.add(container.decode(type.componentType()));
+                        result.add(container.decode(type.getComponentType()));
                     }
 
                     return result.toArray();
@@ -184,15 +184,17 @@ public class JSONDecoder implements Decoder {
 
         text.chars().forEach(character -> {
             switch (character) {
-                case '{', '[' -> {
+                case '{':
+                case '[':
                     level.getAndIncrement();
                     if(level.get() == 1) {
                         currentRaw.set("");
                     } else {
                         concat(currentRaw, (char) character);
                     }
-                }
-                case '}', ']' -> {
+                    break;
+                case '}':
+                case ']':
                     level.getAndDecrement();
                     if(level.get() == 0) {
                         result.add(currentRaw.get().trim());
@@ -200,16 +202,18 @@ public class JSONDecoder implements Decoder {
                     } else {
                         concat(currentRaw, (char) character);
                     }
-                }
-                case ',' -> {
+                    break;
+                case ',':
                     if(level.get() == 1) {
                         result.add(currentRaw.get().trim());
                         currentRaw.set("");
                     } else {
                         concat(currentRaw, (char) character);
                     }
-                }
-                default -> concat(currentRaw, (char) character);
+                    break;
+                default:
+                    concat(currentRaw, (char) character);
+                    break;
             }
         });
 
