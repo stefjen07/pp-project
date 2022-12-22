@@ -3,6 +3,7 @@ package com.stefjen07.json;
 import com.stefjen07.decoder.*;
 import com.stefjen07.KeyValue;
 
+import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +44,7 @@ public class JSONDecoder implements Decoder {
 
         @Override
         public String[] getAllKeys() {
-            return (String[]) allKeys.toArray();
+            return allKeys.toArray(new String[0]);
         }
 
         @Override
@@ -120,7 +121,7 @@ public class JSONDecoder implements Decoder {
                     return result;
                 }
 
-                if (type.isArray()) {
+                if(type.isArray()) {
                     List<Object> result = new ArrayList<>();
                     var container = unkeyedContainer();
 
@@ -128,7 +129,7 @@ public class JSONDecoder implements Decoder {
                         result.add(container.decode(type.getComponentType()));
                     }
 
-                    return result.toArray();
+                    return result.toArray((Object[]) Array.newInstance(type.getComponentType(), 0));
                 }
 
                 if(Boolean.class == type) return Boolean.parseBoolean( raw );
