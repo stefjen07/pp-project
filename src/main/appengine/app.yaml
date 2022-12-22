@@ -1,0 +1,10 @@
+runtime: java11
+env: standard
+instance_class: F4
+env_variables:
+  SPRING_PROFILES_ACTIVE: "gcp"
+health_check:
+  enable_health_check: False
+handlers:
+  - url: /.*
+    script: this field is required, but ignored
