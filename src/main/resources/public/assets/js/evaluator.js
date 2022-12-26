@@ -10,10 +10,10 @@ function downloadURI(uri, name) {
 function submitForm() {
     const inputOpt = document.getElementById("inputopt");
     const outputOpt = document.getElementById("outputopt");
-    const inputEnc = document.getElementById("input-enc");
-    const inputArc = document.getElementById("input-arc");
-    const outputEnc = document.getElementById("output-enc");
-    const outputArc = document.getElementById("output-arc");
+    const inputEnc = document.getElementById("input-enc").checked;
+    const inputArc = document.getElementById("input-arc").checked;
+    const outputEnc = document.getElementById("output-enc").checked;
+    const outputArc = document.getElementById("output-arc").checked;
     const filePicker = document.getElementById("file-picker");
 
     const formData = new FormData();
@@ -37,11 +37,11 @@ function submitForm() {
 
     const parameters = new Blob([JSON.stringify({
         inputType: inputType,
-        inputEncryption: inputEnc.value === 'on',
-        inputArchivation: inputArc.value === 'on',
+        inputEncryption: inputEnc,
+        inputArchivation: inputArc,
         outputType: outputType,
-        outputEncryption: outputEnc.value === 'on',
-        outputArchivation: outputArc.value === 'on'
+        outputEncryption: outputEnc,
+        outputArchivation: outputArc
     })], { type: "application/json"});
 
     formData.append("request", filePicker.files[0]);
@@ -61,6 +61,11 @@ function submitForm() {
         if(outputType === 'json' || outputType === 'xml') {
             responseType = 'application/' + outputType;
             extension = outputType;
+        }
+
+        if(outputArc) {
+            responseType = 'application/zip';
+            extension = 'zip';
         }
 
         downloadURI('data:' + responseType + ';base64,' + btoa(request.responseText), 'results.' + extension);

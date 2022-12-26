@@ -4,15 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a9359e2-ebbe-4844-b944-c193edca4340" name="Changes" comment="Web page created">
+    <list default="true" id="6a9359e2-ebbe-4844-b944-c193edca4340" name="Changes" comment="Results downloading implemented">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/system.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/arithmetic/ArithmeticParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/arithmetic/ArithmeticParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/json/JSONDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/json/JSONDecoder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/ArithmeticController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/ArithmeticController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/dto/ArithmeticRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/dto/ArithmeticRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/dto/ArithmeticRequestParameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/dto/ArithmeticRequestParameters.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/model/ArithmeticEquation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/model/ArithmeticEquation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/dto/ArithmeticResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/dto/ArithmeticResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/model/ArithmeticEquation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/model/ArithmeticExpression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLEncoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/zip/ZipUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/zip/ZipUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/public/assets/js/evaluator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/assets/js/evaluator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/test/ZipTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/ZipTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system.properties" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +63,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "com.google.cloudcode.ide_session_index": "20221222_0003",
+    "com.google.cloudcode.ide_session_index": "20221224_0001",
     "last_opened_file_path": "/Users/evgenij/IdeaProjects/pp-project/src/main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -78,6 +85,7 @@
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/main/resources/public/assets/js" />
       <recent name="$PROJECT_DIR$/target/classes/com/stefjen07/decoder" />
       <recent name="$PROJECT_DIR$/target/classes" />
@@ -150,23 +158,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="XMLEncoderTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pp_project" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="ALTERNATIVE_JRE_PATH" value="17" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="XMLEncoderTests" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ZipTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pp-project" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="ZipTests" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ZipTests.testZipContent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pp-project" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ZipTests" />
+      <option name="METHOD_NAME" value="testZipContent" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -220,20 +226,20 @@
       <item itemvalue="JUnit.AllTests" />
       <item itemvalue="JUnit.JSONDecoderTests" />
       <item itemvalue="JUnit.ArithmeticTests" />
+      <item itemvalue="JUnit.ZipTests.testZipContent" />
       <item itemvalue="JUnit.CryptTests" />
       <item itemvalue="JUnit.ZipTests" />
       <item itemvalue="JUnit.ZipTests.testZipUnzipRandomBytes" />
-      <item itemvalue="JUnit.XMLEncoderTests" />
       <item itemvalue="Maven.pp_project [test]" />
       <item itemvalue="Spring Boot.Main" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CryptTests" />
         <item itemvalue="JUnit.ZipTests" />
+        <item itemvalue="JUnit.ZipTests.testZipContent" />
+        <item itemvalue="JUnit.CryptTests" />
         <item itemvalue="JUnit.ZipTests.testZipUnzipRandomBytes" />
         <item itemvalue="HTTP Request.generated-requests | #1" />
-        <item itemvalue="JUnit.XMLEncoderTests" />
       </list>
     </recent_temporary>
   </component>
@@ -271,7 +277,9 @@
       <workItem from="1670792462730" duration="1000" />
       <workItem from="1671265710875" duration="3378000" />
       <workItem from="1671632355919" duration="800000" />
-      <workItem from="1671692148814" duration="21099000" />
+      <workItem from="1671692148814" duration="21905000" />
+      <workItem from="1671785678149" duration="30208000" />
+      <workItem from="1671865226085" duration="16242000" />
     </task>
     <task id="LOCAL-00001" summary="XML Encoder">
       <created>1664654970120</created>
@@ -336,7 +344,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671716776144</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Results downloading implemented">
+      <created>1671744711672</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1671744711672</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -366,7 +381,8 @@
     <MESSAGE value="Encrypting and zipping" />
     <MESSAGE value="Web service sketch and zip tests" />
     <MESSAGE value="Web page created" />
-    <option name="LAST_COMMIT_MESSAGE" value="Web page created" />
+    <MESSAGE value="Results downloading implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="Results downloading implemented" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -377,9 +393,14 @@
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/stefjen07/json/JSONDecoder.java</url>
-          <line>68</line>
-          <option name="timeStamp" value="31" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/stefjen07/zip/ZipUtil.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/stefjen07/zip/ZipUtil.java</url>
+          <line>78</line>
+          <option name="timeStamp" value="48" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
