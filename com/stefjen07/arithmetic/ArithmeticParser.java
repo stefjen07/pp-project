@@ -1,9 +1,14 @@
 package com.stefjen07.arithmetic;
 
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
+@Service
+@RequiredArgsConstructor
 public class ArithmeticParser {
 
     static String specialCharacterToString(SpecialCharacter c) {

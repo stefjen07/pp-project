@@ -1,7 +1,7 @@
 package com.stefjen07.webservice.dto;
 
 import com.stefjen07.decoder.Decodable;
-import com.stefjen07.webservice.model.ArithmeticEquation;
+import com.stefjen07.webservice.model.ArithmeticExpression;
 import lombok.Data;
 import lombok.Getter;
 
@@ -9,5 +9,5 @@ import lombok.Getter;
 @Getter
 @Decodable
 public class ArithmeticRequest {
-    ArithmeticEquation[] equations;
+    ArithmeticExpression[] expressions;
 }

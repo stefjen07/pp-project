@@ -2,14 +2,18 @@ package com.stefjen07.webservice;
 
 import com.stefjen07.arithmetic.ArithmeticParser;
 import com.stefjen07.decoder.Decoder;
+import com.stefjen07.encoder.Encoder;
 import com.stefjen07.json.JSONDecoder;
+import com.stefjen07.json.JSONEncoder;
 import com.stefjen07.webservice.dto.ArithmeticRequest;
 import com.stefjen07.webservice.dto.ArithmeticRequestParameters;
 import com.stefjen07.webservice.dto.ArithmeticResponse;
-import com.stefjen07.webservice.model.ArithmeticEquation;
+import com.stefjen07.webservice.model.ArithmeticExpression;
 import com.stefjen07.webservice.model.ArithmeticResult;
 import com.stefjen07.webservice.model.EncodingType;
 import com.stefjen07.xml.XMLDecoder;
+import com.stefjen07.xml.XMLEncoder;
+import com.stefjen07.zip.ZipUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.MediaType;
@@ -19,59 +23,70 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Log4j2
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/arithmetic")
 public class ArithmeticController {
-    ArithmeticParser parser = new ArithmeticParser();
+    final ArithmeticParser parser;
+    final ZipUtil zipUtil;
 
     @PostMapping(path = "/calculate", consumes = { MediaType.MULTIPART_FORM_DATA_VALUE, MediaType.APPLICATION_OCTET_STREAM_VALUE })
-    public ResponseEntity<ArithmeticResponse> calculate(@RequestPart ArithmeticRequestParameters parameters, @RequestPart MultipartFile request) throws IOException {
+    public ResponseEntity<String> calculate(@RequestPart ArithmeticRequestParameters parameters, @RequestPart MultipartFile request) throws IOException {
         ArithmeticRequest parsedRequest;
 
-        StringBuilder inputContentBuilder = new StringBuilder();
-        Scanner scanner = new Scanner(request.getInputStream());
+        String inputContent;
 
-        while(scanner.hasNext()) {
-            inputContentBuilder.append(scanner.next());
+        if(parameters.getInputArchivation()) {
+            inputContent = zipUtil.unzip(request.getBytes());
+        } else {
+            inputContent = new String(request.getBytes());
         }
 
         if(parameters.getInputType() == EncodingType.plain) {
             parsedRequest = new ArithmeticRequest();
 
-            List<ArithmeticEquation> equations = new ArrayList<>();
+            List<ArithmeticExpression> expressions = new ArrayList<>();
 
-            final AtomicReference<ArithmeticEquation> currentEquation = new AtomicReference<>(new ArithmeticEquation());
-            inputContentBuilder.toString().chars().forEach((c) -> {
+            final AtomicReference<ArithmeticExpression> currentExpression = new AtomicReference<>(new ArithmeticExpression());
+            AtomicBoolean isWritingName = new AtomicBoolean(true);
+
+            inputContent.chars().forEach((c) -> {
                 if(c == '\n') {
-                    equations.add(currentEquation.get());
-                    currentEquation.set(new ArithmeticEquation());
+                    expressions.add(currentExpression.get());
+                    currentExpression.set(new ArithmeticExpression());
+                    isWritingName.set(true);
+                } else if(c == ' ') {
+                    isWritingName.set(false);
                 }
 
-                ArithmeticEquation equation = currentEquation.get();
-                equation.setEquation(equation.getEquation() + c);
-                currentEquation.set(equation);
+                ArithmeticExpression expression = currentExpression.get();
+                if(isWritingName.get()) {
+                    expression.setName(expression.getName() + c);
+                } else {
+                    expression.setExpression(expression.getExpression() + c);
+                }
+                currentExpression.set(expression);
             });
 
-            if(!currentEquation.get().getEquation().isEmpty())
-                equations.add(currentEquation.get());
+            if(!currentExpression.get().getExpression().isEmpty())
+                expressions.add(currentExpression.get());
 
-            parsedRequest.setEquations(equations.toArray(new ArithmeticEquation[0]));
+            parsedRequest.setExpressions(expressions.toArray(new ArithmeticExpression[expressions.size()]));
         } else {
             Decoder decoder;
             switch(parameters.getInputType()) {
                 case xml:
-                    decoder = new XMLDecoder(inputContentBuilder.toString());
+                    decoder = new XMLDecoder(inputContent);
                     break;
                 case json:
-                    decoder = new JSONDecoder(inputContentBuilder.toString());
+                    decoder = new JSONDecoder(inputContent);
                     break;
                 default:
                     throw new RuntimeException();
@@ -80,16 +95,41 @@ public class ArithmeticController {
             parsedRequest = (ArithmeticRequest) decoder.decode(ArithmeticRequest.class);
         }
 
-        ArithmeticResponse response = ArithmeticResponse.builder().results(
-            Stream.of(parsedRequest.getEquations()).map(
+        ArithmeticResponse response = new ArithmeticResponse();
+        response.setResults(
+            Arrays.stream(parsedRequest.getExpressions()).map(
                 (e) -> ArithmeticResult.builder()
                         .name(e.getName())
-                        .result(parser.parse(e.getEquation()))
+                        .result(parser.parse(e.getExpression()))
                         .build()
             )
             .collect(Collectors.toList())
-        ).build();
+        );
 
-        return ResponseEntity.ok(response);
+        String responseContent;
+
+        if(parameters.getOutputType() == EncodingType.plain) {
+            responseContent = response.getResults().stream().map((e) -> e.getName() + " " + e.getResult()).collect(Collectors.joining("\n"));
+        } else {
+            Encoder encoder;
+            switch (parameters.getOutputType()) {
+                case xml:
+                    encoder = new XMLEncoder();
+                    break;
+                case json:
+                    encoder = new JSONEncoder();
+                    break;
+                default:
+                    throw new RuntimeException();
+            }
+
+            responseContent = encoder.encode(response);
+        }
+
+        if(parameters.getOutputArchivation()) {
+            responseContent = zipUtil.zip(responseContent, "results." + parameters.getOutputType());
+        }
+
+        return ResponseEntity.ok(responseContent);
     }
 }

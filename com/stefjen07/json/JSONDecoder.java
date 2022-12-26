@@ -44,7 +44,7 @@ public class JSONDecoder implements Decoder {
 
         @Override
         public String[] getAllKeys() {
-            return allKeys.toArray(new String[0]);
+            return allKeys.toArray(new String[allKeys.size()]);
         }
 
         @Override
@@ -129,7 +129,7 @@ public class JSONDecoder implements Decoder {
                         result.add(container.decode(type.getComponentType()));
                     }
 
-                    return result.toArray((Object[]) Array.newInstance(type.getComponentType(), 0));
+                    return result.toArray((Object[]) Array.newInstance(type.getComponentType(), result.size()));
                 }
 
                 if(Boolean.class == type) return Boolean.parseBoolean( raw );
