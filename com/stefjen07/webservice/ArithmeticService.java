@@ -1,14 +1,14 @@
 package com.stefjen07.webservice;
 
-import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j2;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
+import com.stefjen07.factory.FormatFactory;
+import com.stefjen07.webservice.model.ArithmeticExpression;
+import com.stefjen07.webservice.model.ArithmeticResult;
+import com.stefjen07.webservice.model.EncodingType;
 
-@Log4j2
-@RequiredArgsConstructor
-@Service
-@Component
-public class ArithmeticService {
+import java.util.List;
 
+public interface ArithmeticService {
+    FormatFactory createFactoryFor(EncodingType type);
+
+    List<ArithmeticResult> calculateArithmeticExpressions(ArithmeticExpression[] expressions);
 }
