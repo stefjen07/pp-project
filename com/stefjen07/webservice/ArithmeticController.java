@@ -68,9 +68,9 @@ public class ArithmeticController {
 
                 ArithmeticExpression expression = currentExpression.get();
                 if(isWritingName.get()) {
-                    expression.setName(expression.getName() + c);
+                    expression.setName(expression.getName() + (char) c);
                 } else {
-                    expression.setExpression(expression.getExpression() + c);
+                    expression.setExpression(expression.getExpression() + (char) c);
                 }
                 currentExpression.set(expression);
             });

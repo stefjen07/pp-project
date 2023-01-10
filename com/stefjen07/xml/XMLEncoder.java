@@ -61,7 +61,7 @@ public class XMLEncoder implements Encoder {
             var container = encoder.singleValueContainer();
             container.encode(object);
 
-            raws.add(new KeyValue(object.getClass().getSimpleName(), encoder.getRaw()));
+            raws.add(new KeyValue(object.getClass().getTypeName(), encoder.getRaw()));
             count += 1;
         }
 
