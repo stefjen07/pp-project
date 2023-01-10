@@ -1,3 +1,5 @@
+package com.stefjen07;
+
 import com.stefjen07.crypt.CryptUtil;
 import lombok.SneakyThrows;
 import org.junit.Assert;

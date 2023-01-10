@@ -1,3 +1,5 @@
+package com.stefjen07;
+
 import com.stefjen07.encoder.Encoder;
 import com.stefjen07.json.JSONEncoder;
 import org.junit.Assert;

@@ -1,3 +1,5 @@
+package com.stefjen07;
+
 import com.stefjen07.arithmetic.ArithmeticParser;
 import org.junit.Assert;
 import org.junit.Test;

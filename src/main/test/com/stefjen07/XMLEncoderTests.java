@@ -1,3 +1,5 @@
+package com.stefjen07;
+
 import com.stefjen07.encoder.Encoder;
 import com.stefjen07.xml.XMLEncoder;
 import org.junit.Assert;
@@ -39,6 +41,6 @@ public class XMLEncoderTests {
 
         Encoder encoder = new XMLEncoder();
         String result = encoder.encode(users);
-        Assert.assertEquals("<User><name>Eugene</name><password>123456</password></User>", result);
+        Assert.assertEquals("<com.stefjen07.User><name>Eugene</name><password>123456</password></com.stefjen07.User>", result);
     }
 }

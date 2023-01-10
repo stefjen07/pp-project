@@ -4,22 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a9359e2-ebbe-4844-b944-c193edca4340" name="Changes" comment="Results downloading implemented">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/system.properties" afterDir="false" />
+    <list default="true" id="6a9359e2-ebbe-4844-b944-c193edca4340" name="Changes" comment="REST tests and bugfixes">
+      <change afterPath="$PROJECT_DIR$/src/main/test/com/stefjen07/RestTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/arithmetic/ArithmeticParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/arithmetic/ArithmeticParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/json/JSONDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/json/JSONDecoder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/ArithmeticController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/ArithmeticController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/dto/ArithmeticRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/dto/ArithmeticRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/dto/ArithmeticResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/dto/ArithmeticResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/model/ArithmeticEquation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/model/ArithmeticExpression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/dto/ArithmeticRequestParameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/dto/ArithmeticRequestParameters.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLEncoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/zip/ZipUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/zip/ZipUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/assets/js/evaluator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/assets/js/evaluator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/ZipTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/ZipTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/test/ArithmeticTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/com/stefjen07/ArithmeticTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/test/CryptTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/com/stefjen07/CryptTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/test/JSONDecoderTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/com/stefjen07/JSONDecoderTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/test/JSONEncoderTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/com/stefjen07/JSONEncoderTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/test/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/com/stefjen07/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/test/XMLDecoderTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/com/stefjen07/XMLDecoderTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/test/XMLEncoderTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/com/stefjen07/XMLEncoderTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/test/ZipTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/com/stefjen07/ZipTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +62,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "com.google.cloudcode.ide_session_index": "20221224_0001",
+    "com.google.cloudcode.ide_session_index": "20230110_0001",
     "last_opened_file_path": "/Users/evgenij/IdeaProjects/pp-project/src/main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -94,7 +93,7 @@
       <recent name="com.stefjen07" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.Main">
+  <component name="RunManager" selected="JUnit.AllTests">
     <configuration name="pp_project" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -103,9 +102,6 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
-    </configuration>
-    <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" requestIdentifier="#1" runType="Run single request">
-      <method v="2" />
     </configuration>
     <configuration name="AllTests" type="JUnit" factoryName="JUnit">
       <module name="pp-project" />
@@ -121,8 +117,8 @@
       <module name="pp-project" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ArithmeticTests" />
+      <option name="PACKAGE_NAME" value="com.stefjen07" />
+      <option name="MAIN_CLASS_NAME" value="com.stefjen07.ArithmeticTests" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
@@ -131,8 +127,8 @@
     </configuration>
     <configuration name="CryptTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pp-project" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CryptTests" />
+      <option name="PACKAGE_NAME" value="com.stefjen07" />
+      <option name="MAIN_CLASS_NAME" value="com.stefjen07.CryptTests" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -140,8 +136,8 @@
     </configuration>
     <configuration name="JSONDecoderTests" type="JUnit" factoryName="JUnit">
       <module name="pp-project" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="JSONDecoderTests" />
+      <option name="PACKAGE_NAME" value="com.stefjen07" />
+      <option name="MAIN_CLASS_NAME" value="com.stefjen07.JSONDecoderTests" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
@@ -150,18 +146,28 @@
     </configuration>
     <configuration name="JSONEncoderTests" type="JUnit" factoryName="JUnit">
       <module name="pp-project" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="JSONEncoderTests" />
+      <option name="PACKAGE_NAME" value="com.stefjen07" />
+      <option name="MAIN_CLASS_NAME" value="com.stefjen07.JSONEncoderTests" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RestTests.testCalculate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pp-project" />
+      <option name="PACKAGE_NAME" value="com.stefjen07" />
+      <option name="MAIN_CLASS_NAME" value="com.stefjen07.RestTests" />
+      <option name="METHOD_NAME" value="testCalculate" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ZipTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pp-project" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ZipTests" />
+      <option name="PACKAGE_NAME" value="com.stefjen07" />
+      <option name="MAIN_CLASS_NAME" value="com.stefjen07.ZipTests" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -169,8 +175,8 @@
     </configuration>
     <configuration name="ZipTests.testZipContent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pp-project" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ZipTests" />
+      <option name="PACKAGE_NAME" value="com.stefjen07" />
+      <option name="MAIN_CLASS_NAME" value="com.stefjen07.ZipTests" />
       <option name="METHOD_NAME" value="testZipContent" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -179,8 +185,8 @@
     </configuration>
     <configuration name="ZipTests.testZipUnzipRandomBytes" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pp-project" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ZipTests" />
+      <option name="PACKAGE_NAME" value="com.stefjen07" />
+      <option name="MAIN_CLASS_NAME" value="com.stefjen07.ZipTests" />
       <option name="METHOD_NAME" value="testZipUnzipRandomBytes" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -221,11 +227,11 @@
     </configuration>
     <list>
       <item itemvalue="Application.pp_project" />
-      <item itemvalue="HTTP Request.generated-requests | #1" />
       <item itemvalue="JUnit.JSONEncoderTests" />
       <item itemvalue="JUnit.AllTests" />
       <item itemvalue="JUnit.JSONDecoderTests" />
       <item itemvalue="JUnit.ArithmeticTests" />
+      <item itemvalue="JUnit.RestTests.testCalculate" />
       <item itemvalue="JUnit.ZipTests.testZipContent" />
       <item itemvalue="JUnit.CryptTests" />
       <item itemvalue="JUnit.ZipTests" />
@@ -235,11 +241,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RestTests.testCalculate" />
         <item itemvalue="JUnit.ZipTests" />
         <item itemvalue="JUnit.ZipTests.testZipContent" />
         <item itemvalue="JUnit.CryptTests" />
         <item itemvalue="JUnit.ZipTests.testZipUnzipRandomBytes" />
-        <item itemvalue="HTTP Request.generated-requests | #1" />
       </list>
     </recent_temporary>
   </component>
@@ -279,7 +285,11 @@
       <workItem from="1671632355919" duration="800000" />
       <workItem from="1671692148814" duration="21905000" />
       <workItem from="1671785678149" duration="30208000" />
-      <workItem from="1671865226085" duration="16242000" />
+      <workItem from="1671865226085" duration="16981000" />
+      <workItem from="1672224960046" duration="43000" />
+      <workItem from="1672225258345" duration="21000" />
+      <workItem from="1672229647007" duration="624000" />
+      <workItem from="1673354566224" duration="4057000" />
     </task>
     <task id="LOCAL-00001" summary="XML Encoder">
       <created>1664654970120</created>
@@ -351,7 +361,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671744711672</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Unzipping">
+      <created>1672089522917</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1672089522917</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -382,7 +399,9 @@
     <MESSAGE value="Web service sketch and zip tests" />
     <MESSAGE value="Web page created" />
     <MESSAGE value="Results downloading implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="Results downloading implemented" />
+    <MESSAGE value="Unzipping" />
+    <MESSAGE value="REST tests and bugfixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="REST tests and bugfixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -394,13 +413,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/stefjen07/zip/ZipUtil.java</url>
-          <line>62</line>
+          <line>61</line>
           <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/stefjen07/zip/ZipUtil.java</url>
-          <line>78</line>
+          <line>77</line>
           <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/ArithmeticController.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="51" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

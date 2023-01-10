@@ -1,3 +1,5 @@
+package com.stefjen07;
+
 import com.stefjen07.decoder.Decodable;
 import com.stefjen07.encoder.Encodable;
 import lombok.AllArgsConstructor;

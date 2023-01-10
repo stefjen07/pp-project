@@ -1,3 +1,5 @@
+package com.stefjen07;
+
 import com.stefjen07.zip.ZipUtil;
 import org.junit.Assert;
 import org.junit.Test;
