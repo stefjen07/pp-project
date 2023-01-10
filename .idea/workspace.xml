@@ -5,20 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a9359e2-ebbe-4844-b944-c193edca4340" name="Changes" comment="REST tests and bugfixes">
-      <change afterPath="$PROJECT_DIR$/src/main/test/com/stefjen07/RestTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/factory/FormatFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/factory/JSONFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/factory/PlainFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/factory/XMLFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/plain/PlainDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/plain/PlainEncoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/ArithmeticServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/ArithmeticController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/ArithmeticController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/dto/ArithmeticRequestParameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/dto/ArithmeticRequestParameters.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLEncoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/ArithmeticTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/com/stefjen07/ArithmeticTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/CryptTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/com/stefjen07/CryptTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/JSONDecoderTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/com/stefjen07/JSONDecoderTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/JSONEncoderTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/com/stefjen07/JSONEncoderTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/com/stefjen07/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/XMLDecoderTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/com/stefjen07/XMLDecoderTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/XMLEncoderTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/com/stefjen07/XMLEncoderTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/ZipTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/com/stefjen07/ZipTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/ArithmeticService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/ArithmeticService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,15 +25,15 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="AnnotationType" />
-        <option value="Interface" />
         <option value="Enum" />
         <option value="JavaScript File" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/src/main/java" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -289,7 +285,7 @@
       <workItem from="1672224960046" duration="43000" />
       <workItem from="1672225258345" duration="21000" />
       <workItem from="1672229647007" duration="624000" />
-      <workItem from="1673354566224" duration="4057000" />
+      <workItem from="1673354566224" duration="6101000" />
     </task>
     <task id="LOCAL-00001" summary="XML Encoder">
       <created>1664654970120</created>
@@ -368,7 +364,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672089522917</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="REST tests and bugfixes">
+      <created>1673358720860</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1673358720860</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -420,11 +423,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/stefjen07/zip/ZipUtil.java</url>
           <line>77</line>
           <option name="timeStamp" value="48" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/ArithmeticController.java</url>
-          <line>52</line>
-          <option name="timeStamp" value="51" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
