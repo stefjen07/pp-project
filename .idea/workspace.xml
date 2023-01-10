@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a9359e2-ebbe-4844-b944-c193edca4340" name="Changes" comment="REST tests and bugfixes">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/factory/FormatFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/factory/JSONFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/factory/PlainFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/factory/XMLFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/plain/PlainDecoder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/plain/PlainEncoder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/ArithmeticServiceImpl.java" afterDir="false" />
+    <list default="true" id="6a9359e2-ebbe-4844-b944-c193edca4340" name="Changes" comment="Abstract factory implemented">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/ArithmeticController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/ArithmeticController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/ArithmeticService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/ArithmeticService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/dto/ArithmeticRequestParameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/dto/ArithmeticRequestParameters.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +50,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "com.google.cloudcode.ide_session_index": "20230110_0001",
+    "com.google.cloudcode.ide_session_index": "20230110_0003",
     "last_opened_file_path": "/Users/evgenij/IdeaProjects/pp-project/src/main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -285,7 +277,8 @@
       <workItem from="1672224960046" duration="43000" />
       <workItem from="1672225258345" duration="21000" />
       <workItem from="1672229647007" duration="624000" />
-      <workItem from="1673354566224" duration="6101000" />
+      <workItem from="1673354566224" duration="7361000" />
+      <workItem from="1673365400507" duration="890000" />
     </task>
     <task id="LOCAL-00001" summary="XML Encoder">
       <created>1664654970120</created>
@@ -371,11 +364,29 @@
       <option name="project" value="LOCAL" />
       <updated>1673358720860</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Abstract factory implemented">
+      <created>1673360803895</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1673360803895</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -404,7 +415,8 @@
     <MESSAGE value="Results downloading implemented" />
     <MESSAGE value="Unzipping" />
     <MESSAGE value="REST tests and bugfixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="REST tests and bugfixes" />
+    <MESSAGE value="Abstract factory implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="Abstract factory implemented" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
