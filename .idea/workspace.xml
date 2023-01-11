@@ -4,9 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a9359e2-ebbe-4844-b944-c193edca4340" name="Changes" comment="Abstract factory implemented">
+    <list default="true" id="6a9359e2-ebbe-4844-b944-c193edca4340" name="Changes" comment="Fix">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/assets/images/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/samples/expressions.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/samples/expressions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/samples/expressions.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/dto/ArithmeticRequestParameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/dto/ArithmeticRequestParameters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/arithmetic/ArithmeticParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/arithmetic/ArithmeticParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLDecoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLEncoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/test/com/stefjen07/ArithmeticTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/com/stefjen07/ArithmeticTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/test/com/stefjen07/XMLEncoderTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/com/stefjen07/XMLEncoderTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +35,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/src/main/java" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -50,7 +60,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "com.google.cloudcode.ide_session_index": "20230110_0003",
+    "com.google.cloudcode.ide_session_index": "20230111_0003",
     "last_opened_file_path": "/Users/evgenij/IdeaProjects/pp-project/src/main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -72,16 +82,17 @@
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/public/assets/images" />
+      <recent name="$PROJECT_DIR$/src/main/resources/public" />
+      <recent name="$PROJECT_DIR$/src/main/resources/public/assets/samples" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/main/resources/public/assets/js" />
-      <recent name="$PROJECT_DIR$/target/classes/com/stefjen07/decoder" />
-      <recent name="$PROJECT_DIR$/target/classes" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.stefjen07" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AllTests">
+  <component name="RunManager" selected="JUnit.ArithmeticTests.evaluate">
     <configuration name="pp_project" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -109,6 +120,22 @@
       <option name="MAIN_CLASS_NAME" value="com.stefjen07.ArithmeticTests" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ArithmeticTests.evaluate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pp-project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.stefjen07.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.stefjen07" />
+      <option name="MAIN_CLASS_NAME" value="com.stefjen07.ArithmeticTests" />
+      <option name="METHOD_NAME" value="evaluate" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -171,16 +198,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ZipTests.testZipUnzipRandomBytes" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pp-project" />
-      <option name="PACKAGE_NAME" value="com.stefjen07" />
-      <option name="MAIN_CLASS_NAME" value="com.stefjen07.ZipTests" />
-      <option name="METHOD_NAME" value="testZipUnzipRandomBytes" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="pp_project [test]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -219,21 +236,21 @@
       <item itemvalue="JUnit.AllTests" />
       <item itemvalue="JUnit.JSONDecoderTests" />
       <item itemvalue="JUnit.ArithmeticTests" />
+      <item itemvalue="JUnit.ArithmeticTests.evaluate" />
       <item itemvalue="JUnit.RestTests.testCalculate" />
       <item itemvalue="JUnit.ZipTests.testZipContent" />
       <item itemvalue="JUnit.CryptTests" />
       <item itemvalue="JUnit.ZipTests" />
-      <item itemvalue="JUnit.ZipTests.testZipUnzipRandomBytes" />
       <item itemvalue="Maven.pp_project [test]" />
       <item itemvalue="Spring Boot.Main" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ArithmeticTests.evaluate" />
         <item itemvalue="JUnit.RestTests.testCalculate" />
         <item itemvalue="JUnit.ZipTests" />
         <item itemvalue="JUnit.ZipTests.testZipContent" />
         <item itemvalue="JUnit.CryptTests" />
-        <item itemvalue="JUnit.ZipTests.testZipUnzipRandomBytes" />
       </list>
     </recent_temporary>
   </component>
@@ -278,7 +295,10 @@
       <workItem from="1672225258345" duration="21000" />
       <workItem from="1672229647007" duration="624000" />
       <workItem from="1673354566224" duration="7361000" />
-      <workItem from="1673365400507" duration="890000" />
+      <workItem from="1673365400507" duration="2258000" />
+      <workItem from="1673441795469" duration="3000" />
+      <workItem from="1673445344416" duration="2433000" />
+      <workItem from="1673456768066" duration="5687000" />
     </task>
     <task id="LOCAL-00001" summary="XML Encoder">
       <created>1664654970120</created>
@@ -371,7 +391,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673360803895</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Fix">
+      <created>1673366484459</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1673366484459</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -416,16 +443,12 @@
     <MESSAGE value="Unzipping" />
     <MESSAGE value="REST tests and bugfixes" />
     <MESSAGE value="Abstract factory implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="Abstract factory implemented" />
+    <MESSAGE value="Fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLDecoder.java</url>
-          <line>126</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/stefjen07/zip/ZipUtil.java</url>
           <line>61</line>
@@ -435,6 +458,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/stefjen07/zip/ZipUtil.java</url>
           <line>77</line>
           <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLDecoder.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="51" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

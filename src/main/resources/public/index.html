@@ -7,6 +7,7 @@
     <title>Arithmetic.cf - Arithmetic Expressions</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
+    <link rel="icon" href="assets/images/favicon.ico">
 </head>
 
 <body>
@@ -16,9 +17,6 @@
                         <path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-2zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-4z"></path>
                     </svg></span><span>Arithmetic.cf</span></a><button class="navbar-toggler" data-bs-toggle="collapse"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
     </nav>
-    <header class="bg-dark"></header>
-    <section></section>
-    <section></section>
     <form id="form" onsubmit="submitForm(); return false;">
         <section class="py-5" style="padding-top: 91px;padding-right: 0;">
             <div class="container">
@@ -28,7 +26,19 @@
                         <h2 class="fw-bold">Calculate your expressions</h2>
                     </div>
                 </div>
-                <div class="row d-flex justify-content-center" style="margin-top: 32px;">
+                <div class="row mb-2">
+                    <div class="col-md-8 col-xl-6 text-center mx-auto">
+                        <p class="fw-bold mb-2">Samples</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <span class="col text-center">
+                        <a href="samples/expressions.txt">Plain   </a>
+                        <a style="padding: 2.25em" href="samples/expressions.json">JSON   </a>
+                        <a href="samples/expressions.xml">XML</a>
+                    </span>
+                </div>
+                <div class="row mb-5 d-flex justify-content-center" style="margin-top: 32px;">
                     <div class="col-md-6 col-xl-4">
                         <div>
                             <p style="margin-bottom: 0;padding-bottom: 7px;padding-left: 0;margin-left: 8px;color: rgb(187,187,187);">Input type</p>
@@ -61,7 +71,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row d-flex justify-content-center" style="margin-top: 72px;">
+                <div class="row d-flex justify-content-center pt-5" style="margin-top: 72px;">
                     <div class="col-md-6 col-xl-4">
                         <div><button class="btn btn-primary shadow d-block w-100" type="submit" style="margin-top: -70px;">Calculate</button></div>
                     </div>

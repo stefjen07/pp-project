@@ -41,6 +41,6 @@ public class XMLEncoderTests {
 
         Encoder encoder = new XMLEncoder();
         String result = encoder.encode(users);
-        Assert.assertEquals("<com.stefjen07.User><name>Eugene</name><password>123456</password></com.stefjen07.User>", result);
+        Assert.assertEquals("<User><name>Eugene</name><password>123456</password></User>", result);
     }
 }

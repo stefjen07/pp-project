@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
+    <groupId>com.stefjen07</groupId>
     <artifactId>pp_project</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -76,14 +76,6 @@
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-                <includes>
-                    <include>**/*.properties</include>
-                    <include>**/*.yml</include>
-                    <include>**/*.html</include>
-                    <include>**/*.css</include>
-                    <include>**/*.js</include>
-                </includes>
             </resource>
         </resources>
         <plugins>
@@ -118,5 +110,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

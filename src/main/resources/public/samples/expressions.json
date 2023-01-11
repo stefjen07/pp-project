@@ -1,0 +1,12 @@
+{
+    "expressions": [
+        {
+            "name": "apples",
+            "expression": "1+2+3"
+        },
+        {
+            "name": "data",
+            "expression": "-3*(-4)"
+        }
+    ]
+}

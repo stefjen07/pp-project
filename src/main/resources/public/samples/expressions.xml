@@ -1,0 +1,10 @@
+<expressions>
+    <expression>
+        <name>apples</name>
+        <expression>1+2+3</expression>
+    </expression>
+    <expression>
+        <name>data</name>
+        <expression>-3*(-4)</expression>
+    </expression>
+</expressions>
