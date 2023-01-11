@@ -59,7 +59,7 @@ public class ArithmeticParser {
                 case '-':
                 case '*':
                 case '/':
-                    if (c == '-' && (i == 0 || String.valueOf(c).matches("[0-9)]"))) {
+                    if (c == '-' && (i == 0 || String.valueOf(expression.charAt(i-1)).matches("[(+\\-*/]"))) {
                         result.add("0");
                     }
 

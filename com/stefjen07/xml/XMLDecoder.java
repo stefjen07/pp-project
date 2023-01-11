@@ -3,6 +3,7 @@ package com.stefjen07.xml;
 import com.stefjen07.KeyValue;
 import com.stefjen07.decoder.*;
 
+import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
@@ -39,7 +40,7 @@ public class XMLDecoder implements Decoder {
 
         @Override
         public String[] getAllKeys() {
-            return (String[]) allKeys.toArray();
+            return allKeys.toArray(new String[allKeys.size()]);
         }
 
         @Override
@@ -124,7 +125,7 @@ public class XMLDecoder implements Decoder {
                         result.add(container.decode(type.getComponentType()));
                     }
 
-                    return result.toArray();
+                    return result.toArray((Object[]) Array.newInstance(type.getComponentType(), result.size()));
                 }
 
                 if( Boolean.class == type ) return Boolean.parseBoolean( raw );
@@ -148,7 +149,7 @@ public class XMLDecoder implements Decoder {
     String[] codingPath;
 
     XMLDecoder(String raw, String[] codingPath) {
-        this.raw = raw;
+        this.raw = raw.replaceAll("[ \n\t\r]*", "");
         this.codingPath = codingPath;
     }
 
@@ -228,8 +229,10 @@ public class XMLDecoder implements Decoder {
                     }
                     break;
                 default:
-                    if (getLastChar(currentTag.get()) != '>' && currentTag.get().charAt(0) == '<') {
-                        concat(currentTag, (char) character);
+                    if (!currentTag.get().isEmpty()) {
+                        if (getLastChar(currentTag.get()) != '>' && currentTag.get().charAt(0) == '<') {
+                            concat(currentTag, (char) character);
+                        }
                     }
                     break;
             }
