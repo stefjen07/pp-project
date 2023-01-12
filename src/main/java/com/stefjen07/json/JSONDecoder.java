@@ -3,6 +3,7 @@ package com.stefjen07.json;
 import com.stefjen07.decoder.*;
 import com.stefjen07.KeyValue;
 
+import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +44,7 @@ public class JSONDecoder implements Decoder {
 
         @Override
         public String[] getAllKeys() {
-            return (String[]) allKeys.toArray();
+            return allKeys.toArray(new String[allKeys.size()]);
         }
 
         @Override
@@ -120,15 +121,15 @@ public class JSONDecoder implements Decoder {
                     return result;
                 }
 
-                if (type.isArray()) {
+                if(type.isArray()) {
                     List<Object> result = new ArrayList<>();
                     var container = unkeyedContainer();
 
                     while(!container.isAtEnd()) {
-                        result.add(container.decode(type.componentType()));
+                        result.add(container.decode(type.getComponentType()));
                     }
 
-                    return result.toArray();
+                    return result.toArray((Object[]) Array.newInstance(type.getComponentType(), result.size()));
                 }
 
                 if(Boolean.class == type) return Boolean.parseBoolean( raw );
@@ -184,15 +185,17 @@ public class JSONDecoder implements Decoder {
 
         text.chars().forEach(character -> {
             switch (character) {
-                case '{', '[' -> {
+                case '{':
+                case '[':
                     level.getAndIncrement();
                     if(level.get() == 1) {
                         currentRaw.set("");
                     } else {
                         concat(currentRaw, (char) character);
                     }
-                }
-                case '}', ']' -> {
+                    break;
+                case '}':
+                case ']':
                     level.getAndDecrement();
                     if(level.get() == 0) {
                         result.add(currentRaw.get().trim());
@@ -200,16 +203,18 @@ public class JSONDecoder implements Decoder {
                     } else {
                         concat(currentRaw, (char) character);
                     }
-                }
-                case ',' -> {
+                    break;
+                case ',':
                     if(level.get() == 1) {
                         result.add(currentRaw.get().trim());
                         currentRaw.set("");
                     } else {
                         concat(currentRaw, (char) character);
                     }
-                }
-                default -> concat(currentRaw, (char) character);
+                    break;
+                default:
+                    concat(currentRaw, (char) character);
+                    break;
             }
         });
 

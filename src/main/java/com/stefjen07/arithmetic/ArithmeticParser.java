@@ -1,27 +1,37 @@
 package com.stefjen07.arithmetic;
 
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
+@Service
+@RequiredArgsConstructor
 public class ArithmeticParser {
 
     static String specialCharacterToString(SpecialCharacter c) {
-        return switch (c) {
-            case add -> "+";
-            case subtract -> "-";
-            case multiply -> "*";
-            case divide -> "/";
-            default -> null;
-        };
+        switch (c) {
+            case add: return "+";
+            case subtract: return "-";
+            case multiply: return "*";
+            case divide: return "/";
+            default: return null;
+        }
     }
 
     int priority(SpecialCharacter character) {
-        return switch (character) {
-            case add, subtract -> 1;
-            case multiply, divide -> 2;
-            default -> 0;
-        };
+        switch (character) {
+            case add:
+            case subtract:
+                return 1;
+            case multiply:
+            case divide:
+                return 2;
+            default:
+                return 0;
+        }
     }
 
     List<String> infixToPostfix(String expression) {
@@ -45,32 +55,40 @@ public class ArithmeticParser {
             }
 
             switch (c) {
-                case '+', '-', '*', '/' -> {
-                    if (c == '-' && (i == 0 || String.valueOf(c).matches("[0-9)]"))) {
+                case '+':
+                case '-':
+                case '*':
+                case '/':
+                    if (c == '-' && (i == 0 || String.valueOf(expression.charAt(i-1)).matches("[(+\\-*/]"))) {
                         result.add("0");
                     }
 
-                    SpecialCharacter specialCharacter = switch (c) {
-                        case '+' -> SpecialCharacter.add;
-                        case '-' -> SpecialCharacter.subtract;
-                        case '*' -> SpecialCharacter.multiply;
-                        case '/' -> SpecialCharacter.divide;
-                        default -> throw new RuntimeException();
-                    };
+                    SpecialCharacter specialCharacter;
+                    switch (c) {
+                        case '+': specialCharacter = SpecialCharacter.add; break;
+                        case '-': specialCharacter = SpecialCharacter.subtract; break;
+                        case '*': specialCharacter = SpecialCharacter.multiply; break;
+                        case '/': specialCharacter = SpecialCharacter.divide; break;
+                        default: throw new RuntimeException();
+                    }
                     while (!operators.isEmpty() && priority(operators.peek()) >= priority(specialCharacter))
                         result.add(specialCharacterToString(operators.pop()));
 
                     operators.push(specialCharacter);
-                }
-                case '(' -> operators.push(SpecialCharacter.openParentheses);
-                case ')' -> {
+                    break;
+                case '(':
+                    operators.push(SpecialCharacter.openParentheses);
+                    break;
+                case ')':
                     SpecialCharacter lastOperator = operators.pop();
                     while (lastOperator != SpecialCharacter.openParentheses) {
                         result.add(specialCharacterToString(lastOperator));
                         lastOperator = operators.pop();
                     }
-                }
-                default -> currentOperand = currentOperand.concat(String.valueOf(c));
+                    break;
+                default:
+                    currentOperand = currentOperand.concat(String.valueOf(c));
+                    break;
             }
         }
 
@@ -91,20 +109,24 @@ public class ArithmeticParser {
     }
 
     static boolean isOperator(String text) {
-        return switch(text) {
-            case "+", "-", "*", "/" -> true;
-            default -> false;
-        };
+        switch(text) {
+            case "+":
+            case "-":
+            case "*":
+            case "/":
+                return true;
+            default: return false;
+        }
     }
 
     static Operator operatorFromString(String text) {
-        return switch(text) {
-            case "+" -> Operator.add;
-            case "-" -> Operator.subtract;
-            case "*" -> Operator.multiply;
-            case "/" -> Operator.divide;
-            default -> throw new RuntimeException();
-        };
+        switch(text) {
+            case "+": return Operator.add;
+            case "-": return Operator.subtract;
+            case "*": return Operator.multiply;
+            case "/": return Operator.divide;
+            default: throw new RuntimeException();
+        }
     }
 
     ArithmeticExpression getOperand(List<String> postfix) {
