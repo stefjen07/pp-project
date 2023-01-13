@@ -19,3 +19,5 @@ Supported workflows for input preparation:
 Bootstrap, HTML, CSS, JS
 ### Web Service
 REST
+### Patterns
+Abstract factory, Decorator, Composite

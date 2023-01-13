@@ -211,7 +211,10 @@ public class XMLDecoder implements Decoder {
                     currentTag.set("<");
                     break;
                 case '>':
-                    if (currentTag.get().length() > 1 && currentTag.get().charAt(1) == '/' && !tagDeque.isEmpty()) {
+                    if (currentTag.get().length() > 1 && currentTag.get().charAt(1) == '?') {
+                        currentTag.set("");
+                        currentRaw.set("");
+                    } else if (currentTag.get().length() > 1 && currentTag.get().charAt(1) == '/' && !tagDeque.isEmpty()) {
                         tagDeque.pop();
 
                         if (!tagDeque.isEmpty()) {
