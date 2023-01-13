@@ -1,5 +1,6 @@
 package com.stefjen07.crypt;
 
+import lombok.SneakyThrows;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.*;
@@ -19,16 +20,20 @@ public class CryptUtil {
     Cipher cipher;
     String algorithm;
 
-    public CryptUtil() throws NoSuchPaddingException, NoSuchAlgorithmException {
+    public CryptUtil() {
         this(CryptPreset.aes);
     }
 
-    public CryptUtil(CryptPreset preset) throws NoSuchAlgorithmException, NoSuchPaddingException {
-        switch(preset) {
-            case aes:
-                algorithm = "AES";
-                cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-                break;
+    public CryptUtil(CryptPreset preset) {
+        try {
+            switch (preset) {
+                case aes:
+                    algorithm = "AES";
+                    cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+                    break;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -50,7 +55,8 @@ public class CryptUtil {
         return new IvParameterSpec(iv);
     }
 
-    public String encrypt(String input, String password) throws NoSuchAlgorithmException, InvalidKeySpecException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException {
+    @SneakyThrows
+    public String encrypt(String input, String password) {
         byte[] salt = new byte[128];
         SecureRandom random = new SecureRandom();
         random.nextBytes(salt);
@@ -74,7 +80,8 @@ public class CryptUtil {
                 .encodeToString(cipherText);
     }
 
-    public String decrypt(String input, String password) throws NoSuchAlgorithmException, InvalidKeySpecException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException {
+    @SneakyThrows
+    public String decrypt(String input, String password) {
         byte[] salt = Base64.getDecoder().decode(input.substring(0, 172));
         byte[] iv = Base64.getDecoder().decode(input.substring(172, 172 + 22));
         return decrypt(

@@ -17,6 +17,7 @@ public class ArithmeticParser {
             case subtract: return "-";
             case multiply: return "*";
             case divide: return "/";
+            case exponentiate: return "^";
             default: return null;
         }
     }
@@ -29,6 +30,8 @@ public class ArithmeticParser {
             case multiply:
             case divide:
                 return 2;
+            case exponentiate:
+                return 3;
             default:
                 return 0;
         }
@@ -54,27 +57,32 @@ public class ArithmeticParser {
                 currentOperand = "";
             }
 
+            boolean isUnary = false;
             switch (c) {
                 case '+':
                 case '-':
-                case '*':
-                case '/':
-                    if (c == '-' && (i == 0 || String.valueOf(expression.charAt(i-1)).matches("[(+\\-*/]"))) {
+                    if (i == 0 || String.valueOf(expression.charAt(i - 1)).matches("[(+\\-*/^]")) {
+                        isUnary = true;
                         result.add("0");
                     }
-
+                case '*':
+                case '/':
+                case '^':
                     SpecialCharacter specialCharacter;
                     switch (c) {
                         case '+': specialCharacter = SpecialCharacter.add; break;
                         case '-': specialCharacter = SpecialCharacter.subtract; break;
                         case '*': specialCharacter = SpecialCharacter.multiply; break;
                         case '/': specialCharacter = SpecialCharacter.divide; break;
+                        case '^': specialCharacter = SpecialCharacter.exponentiate; break;
                         default: throw new RuntimeException();
                     }
-                    while (!operators.isEmpty() && priority(operators.peek()) >= priority(specialCharacter))
+
+                    while (!isUnary && !operators.isEmpty() && priority(operators.peek()) >= priority(specialCharacter))
                         result.add(specialCharacterToString(operators.pop()));
 
                     operators.push(specialCharacter);
+
                     break;
                 case '(':
                     operators.push(SpecialCharacter.openParentheses);
@@ -114,6 +122,7 @@ public class ArithmeticParser {
             case "-":
             case "*":
             case "/":
+            case "^":
                 return true;
             default: return false;
         }
@@ -125,6 +134,7 @@ public class ArithmeticParser {
             case "-": return Operator.subtract;
             case "*": return Operator.multiply;
             case "/": return Operator.divide;
+            case "^": return Operator.exponentiate;
             default: throw new RuntimeException();
         }
     }

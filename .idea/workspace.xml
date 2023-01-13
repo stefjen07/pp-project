@@ -4,31 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a9359e2-ebbe-4844-b944-c193edca4340" name="Changes" comment="Encryption/decryption attached to web service">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/crypt/CryptController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/expressions.json.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/assets/js/check-pass-zone.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/assets/js/crypt.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="6a9359e2-ebbe-4844-b944-c193edca4340" name="Changes" comment="Update README.md">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/calculator/TextCalculator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/calculator/TextCalculatorBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/calculator/TextCalculatorImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/calculator/decorator/DecryptionDecorator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/calculator/decorator/EncryptionDecorator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/calculator/decorator/TextCalculatorDecorator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/calculator/decorator/UnzippingDecorator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/calculator/decorator/ZippingDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/arithmetic/ArithmeticExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/arithmetic/ArithmeticExpression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/arithmetic/ArithmeticParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/arithmetic/ArithmeticParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/arithmetic/Operator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/arithmetic/Operator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/arithmetic/SpecialCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/arithmetic/SpecialCharacter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/crypt/CryptUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/crypt/CryptUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/plain/PlainDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/plain/PlainDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/plain/PlainEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/plain/PlainEncoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/ArithmeticController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/arithmetic/ArithmeticController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/ArithmeticService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/arithmetic/service/ArithmeticService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/ArithmeticServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/arithmetic/service/ArithmeticServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/dto/ArithmeticRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/arithmetic/dto/ArithmeticRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/dto/ArithmeticRequestParameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/arithmetic/dto/ArithmeticRequestParameters.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/dto/ArithmeticResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/arithmetic/dto/ArithmeticResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/model/ArithmeticExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/arithmetic/model/ArithmeticExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/model/ArithmeticResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/arithmetic/model/ArithmeticResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/model/EncodingType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/arithmetic/model/EncodingType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/arithmetic/ArithmeticController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/arithmetic/ArithmeticController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/arithmetic/model/EncodingType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/arithmetic/model/EncodingType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/arithmetic/service/ArithmeticService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/arithmetic/service/ArithmeticService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/arithmetic/service/ArithmeticServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/arithmetic/service/ArithmeticServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/zip/ZipUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/zip/ZipUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/public/assets/js/evaluator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/assets/js/evaluator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/com/stefjen07/CryptTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/com/stefjen07/CryptTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/test/com/stefjen07/ArithmeticTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/com/stefjen07/ArithmeticTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/test/com/stefjen07/RestTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/com/stefjen07/RestTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/test/com/stefjen07/ZipTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/com/stefjen07/ZipTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,9 +43,9 @@
       <list>
         <option value="AnnotationType" />
         <option value="Enum" />
+        <option value="JavaScript File" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -72,7 +75,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "com.google.cloudcode.ide_session_index": "20230111_0003",
+    "com.google.cloudcode.ide_session_index": "20230113_0004",
+    "last.edited.regexp": "",
     "last_opened_file_path": "/Users/evgenij/IdeaProjects/pp-project/src/main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -104,7 +108,7 @@
       <recent name="com.stefjen07" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.Main">
+  <component name="RunManager" selected="JUnit.AllTests">
     <configuration name="pp_project" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -251,6 +255,7 @@
     </configuration>
     <list>
       <item itemvalue="Application.pp_project" />
+      <item itemvalue="JUnit.ArithmeticTests" />
       <item itemvalue="JUnit.JSONEncoderTests" />
       <item itemvalue="JUnit.AllTests" />
       <item itemvalue="JUnit.JSONDecoderTests" />
@@ -316,6 +321,7 @@
       <workItem from="1673441795469" duration="3000" />
       <workItem from="1673445344416" duration="2433000" />
       <workItem from="1673456768066" duration="5687000" />
+      <workItem from="1673625692475" duration="16314000" />
     </task>
     <task id="LOCAL-00001" summary="XML Encoder">
       <created>1664654970120</created>
@@ -415,7 +421,28 @@
       <option name="project" value="LOCAL" />
       <updated>1673366484459</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Encryption/decryption attached to web service">
+      <created>1673625365936</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1673625365936</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Upload README.md">
+      <created>1673627969855</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1673627969856</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Update README.md">
+      <created>1673629618475</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1673629618475</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -477,20 +504,17 @@
     <MESSAGE value="Abstract factory implemented" />
     <MESSAGE value="Fix" />
     <MESSAGE value="Encryption/decryption attached to web service" />
-    <option name="LAST_COMMIT_MESSAGE" value="Encryption/decryption attached to web service" />
+    <MESSAGE value="Upload README.md" />
+    <MESSAGE value="Update README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update README.md" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/stefjen07/zip/ZipUtil.java</url>
-          <line>61</line>
+          <line>67</line>
           <option name="timeStamp" value="41" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/stefjen07/zip/ZipUtil.java</url>
-          <line>77</line>
-          <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLDecoder.java</url>
@@ -498,9 +522,9 @@
           <option name="timeStamp" value="51" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/stefjen07/crypt/CryptUtil.java</url>
-          <line>77</line>
-          <option name="timeStamp" value="53" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/stefjen07/arithmetic/ArithmeticParser.java</url>
+          <line>65</line>
+          <option name="timeStamp" value="57" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

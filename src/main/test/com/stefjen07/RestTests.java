@@ -36,10 +36,10 @@ public class RestTests {
         RequestSpecification request = RestAssured.given();
 
         var parameters = ArithmeticRequestParameters.builder()
-                .inputType(EncodingType.plain)
+                .inputType(EncodingType.txt)
                 .inputEncryption(false)
                 .inputArchivation(false)
-                .outputType(EncodingType.plain)
+                .outputType(EncodingType.txt)
                 .outputEncryption(false)
                 .outputArchivation(false)
                 .build();
@@ -67,7 +67,7 @@ public class RestTests {
                 .inputType(EncodingType.json)
                 .inputEncryption(false)
                 .inputArchivation(true)
-                .outputType(EncodingType.plain)
+                .outputType(EncodingType.txt)
                 .outputEncryption(false)
                 .outputArchivation(false)
                 .build();

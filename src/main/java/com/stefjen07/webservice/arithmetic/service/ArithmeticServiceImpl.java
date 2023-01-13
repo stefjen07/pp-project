@@ -1,49 +1,35 @@
 package com.stefjen07.webservice.arithmetic.service;
 
-import com.stefjen07.arithmetic.ArithmeticParser;
-import com.stefjen07.factory.FormatFactory;
-import com.stefjen07.factory.JSONFactory;
-import com.stefjen07.factory.PlainFactory;
-import com.stefjen07.factory.XMLFactory;
-import com.stefjen07.webservice.arithmetic.model.ArithmeticExpression;
-import com.stefjen07.webservice.arithmetic.model.ArithmeticResult;
-import com.stefjen07.webservice.arithmetic.model.EncodingType;
+import com.stefjen07.calculator.TextCalculator;
+import com.stefjen07.webservice.arithmetic.dto.ArithmeticRequestParameters;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Log4j2
 @RequiredArgsConstructor
 @Service
 public class ArithmeticServiceImpl implements ArithmeticService {
-    final ArithmeticParser parser;
-
     @Override
-    public FormatFactory createFactoryFor(EncodingType type) {
-        switch(type) {
-            case plain:
-                return new PlainFactory();
-            case xml:
-                return new XMLFactory();
-            case json:
-                return new JSONFactory();
+    public String calculateArithmeticExpressions(String inputContent, ArithmeticRequestParameters parameters) {
+        var builder = TextCalculator.builder();
+
+        if(parameters.getInputEncryption()) {
+            builder.decryption(parameters.getInputPassword());
         }
 
-        return null;
-    }
+        if(parameters.getInputArchivation()) {
+            builder.unzipping(parameters.getInputType().name());
+        }
 
-    @Override
-    public List<ArithmeticResult> calculateArithmeticExpressions(ArithmeticExpression[] expressions) {
-        return Arrays.stream(expressions).map(
-                        (e) -> ArithmeticResult.builder()
-                                .name(e.getName())
-                                .result(parser.parse(e.getExpression()))
-                                .build()
-                )
-                .collect(Collectors.toList());
+        if(parameters.getOutputArchivation()) {
+            builder.zipping();
+        }
+
+        if(parameters.getOutputEncryption()) {
+            builder.encryption(parameters.getOutputPassword());
+        }
+
+        return builder.build().calculate(inputContent, parameters);
     }
 }

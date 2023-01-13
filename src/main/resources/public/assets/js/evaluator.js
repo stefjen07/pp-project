@@ -18,8 +18,6 @@ function submitForm() {
     const outputArc = document.getElementById("output-arc").checked;
     const outputPass = document.getElementById("output-pass").value;
 
-    const filePicker = document.getElementById("file-picker");
-
     const formData = new FormData();
 
     const inputOptions = inputOpt.getElementsByTagName('option');
@@ -78,3 +76,36 @@ function submitForm() {
     }
     request.send(formData);
 }
+
+const filePicker = document.getElementById('file-picker');
+filePicker.onchange = function() {
+    const inputOpt = document.getElementById("inputopt");
+    const inputOptions = inputOpt.getElementsByTagName('option');
+
+    switch (filePicker.files[0].type) {
+        case "application/json":
+            for (let j = 0; j < inputOptions.length; j++) {
+                if(inputOptions[j].value === "json") {
+                    inputOptions[j].selected = true;
+                }
+            }
+            break;
+        case "application/xml":
+        case "text/xml":
+            for (let j = 0; j < inputOptions.length; j++) {
+                if(inputOptions[j].value === "xml") {
+                    inputOptions[j].selected = true;
+                }
+            }
+            break;
+        case "text/plain":
+            for (let j = 0; j < inputOptions.length; j++) {
+                if(inputOptions[j].value === "txt") {
+                    inputOptions[j].selected = true;
+                }
+            }
+            break;
+    }
+
+    document.getElementById("input-arc").checked = /.+\.(tar|ar|arj|jar|cpio|zip|7z)/.test(filePicker.files[0].name);
+};

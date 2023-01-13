@@ -10,8 +10,9 @@ public class ArithmeticTests {
         ArithmeticParser parser = new ArithmeticParser();
 
         Assert.assertEquals(12, parser.parse("-3*(-4)"), 0.0001);
-        Assert.assertEquals(-3, parser.parse("-1*2-1"), 0.0001);
-        Assert.assertEquals(3, parser.parse("1+2"), 0.0001);
+        Assert.assertEquals(-3, parser.parse("-1*+2---1"), 0.0001);
+        Assert.assertEquals(-32, parser.parse("-2^5"), 0.0001);
+        Assert.assertEquals(3, parser.parse("1++2"), 0.0001);
         Assert.assertEquals(12, parser.parse("10-1+2*3*2/4"), 0.0001);
         Assert.assertEquals(220, parser.parse("(7+3)(10+1)*2"), 0.0001);
         Assert.assertEquals(-1, parser.parse("(1+2)/(3*4)(5-1)-2"), 0.0001);

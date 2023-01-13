@@ -29,6 +29,7 @@ public class ArithmeticExpression {
             case subtract: return operand1.getValue() - operand2.getValue();
             case multiply: return operand1.getValue() * operand2.getValue();
             case divide: return operand1.getValue() / operand2.getValue();
+            case exponentiate: return Math.pow(operand1.getValue(), operand2.getValue());
             default: throw new RuntimeException();
         }
     }

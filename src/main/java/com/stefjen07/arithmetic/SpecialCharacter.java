@@ -5,6 +5,7 @@ public enum SpecialCharacter {
     subtract,
     multiply,
     divide,
+    exponentiate,
     openParentheses
 }
 
