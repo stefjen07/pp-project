@@ -4,7 +4,7 @@
 ### Arithmetic Parsing
 Supported operations: +, -, *, /
 ### ZIP and encoding
-Archiving formats: ZIP
+Archiving formats: ZIP<br>
 Encoding standard: AES
 ### Nesting
 Supported workflows:
