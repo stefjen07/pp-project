@@ -4,7 +4,7 @@ import com.stefjen07.encoder.Encoder;
 import com.stefjen07.encoder.KeyedEncodingContainer;
 import com.stefjen07.encoder.SingleValueEncodingContainer;
 import com.stefjen07.encoder.UnkeyedEncodingContainer;
-import com.stefjen07.webservice.dto.ArithmeticResponse;
+import com.stefjen07.webservice.arithmetic.dto.ArithmeticResponse;
 
 import java.util.stream.Collectors;
 

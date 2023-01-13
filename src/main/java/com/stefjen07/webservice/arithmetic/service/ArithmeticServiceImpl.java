@@ -1,16 +1,15 @@
-package com.stefjen07.webservice;
+package com.stefjen07.webservice.arithmetic.service;
 
 import com.stefjen07.arithmetic.ArithmeticParser;
 import com.stefjen07.factory.FormatFactory;
 import com.stefjen07.factory.JSONFactory;
 import com.stefjen07.factory.PlainFactory;
 import com.stefjen07.factory.XMLFactory;
-import com.stefjen07.webservice.model.ArithmeticExpression;
-import com.stefjen07.webservice.model.ArithmeticResult;
-import com.stefjen07.webservice.model.EncodingType;
+import com.stefjen07.webservice.arithmetic.model.ArithmeticExpression;
+import com.stefjen07.webservice.arithmetic.model.ArithmeticResult;
+import com.stefjen07.webservice.arithmetic.model.EncodingType;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -20,7 +19,6 @@ import java.util.stream.Collectors;
 @Log4j2
 @RequiredArgsConstructor
 @Service
-@Component
 public class ArithmeticServiceImpl implements ArithmeticService {
     final ArithmeticParser parser;
 

@@ -1,17 +1,20 @@
-package com.stefjen07.webservice;
+package com.stefjen07.webservice.arithmetic;
 
-import com.stefjen07.webservice.dto.ArithmeticRequest;
-import com.stefjen07.webservice.dto.ArithmeticRequestParameters;
-import com.stefjen07.webservice.dto.ArithmeticResponse;
+import com.stefjen07.crypt.CryptUtil;
+import com.stefjen07.webservice.arithmetic.dto.ArithmeticRequest;
+import com.stefjen07.webservice.arithmetic.dto.ArithmeticRequestParameters;
+import com.stefjen07.webservice.arithmetic.dto.ArithmeticResponse;
+import com.stefjen07.webservice.arithmetic.service.ArithmeticService;
 import com.stefjen07.zip.ZipUtil;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 @Log4j2
 @RequiredArgsConstructor
@@ -19,17 +22,21 @@ import java.io.IOException;
 @RequestMapping("/arithmetic")
 public class ArithmeticController {
     final ZipUtil zipUtil;
+    final CryptUtil cryptUtil;
 
     final ArithmeticService arithmeticService;
 
+    @SneakyThrows
     @PostMapping(path = "/calculate", consumes = { MediaType.MULTIPART_FORM_DATA_VALUE, MediaType.APPLICATION_OCTET_STREAM_VALUE })
-    public ResponseEntity<String> calculate(@RequestPart ArithmeticRequestParameters parameters, @RequestPart MultipartFile request) throws IOException {
-        String inputContent;
+    public ResponseEntity<String> calculate(@RequestPart ArithmeticRequestParameters parameters, @RequestPart MultipartFile request) {
+        String inputContent = new String(request.getBytes(), StandardCharsets.ISO_8859_1);
+
+        if(parameters.getInputEncryption()) {
+            inputContent = cryptUtil.decrypt(inputContent, parameters.getInputPassword());
+        }
 
         if(parameters.getInputArchivation()) {
-            inputContent = zipUtil.unzip(request.getBytes());
-        } else {
-            inputContent = new String(request.getBytes());
+            inputContent = zipUtil.unzip(inputContent.getBytes(StandardCharsets.ISO_8859_1));
         }
 
         ArithmeticRequest parsedRequest = (ArithmeticRequest) arithmeticService
@@ -49,6 +56,10 @@ public class ArithmeticController {
 
         if(parameters.getOutputArchivation()) {
             responseContent = zipUtil.zip(responseContent, "results." + parameters.getOutputType());
+        }
+
+        if(parameters.getOutputEncryption()) {
+            responseContent = cryptUtil.encrypt(responseContent, parameters.getOutputPassword());
         }
 
         return ResponseEntity.ok(responseContent);

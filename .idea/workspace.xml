@@ -4,19 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a9359e2-ebbe-4844-b944-c193edca4340" name="Changes" comment="Fix">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/assets/images/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/samples/expressions.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/samples/expressions.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/samples/expressions.xml" afterDir="false" />
+    <list default="true" id="6a9359e2-ebbe-4844-b944-c193edca4340" name="Changes" comment="Encryption/decryption attached to web service">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/crypt/CryptController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/expressions.json.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/assets/js/check-pass-zone.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/assets/js/crypt.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/arithmetic/ArithmeticParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/arithmetic/ArithmeticParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLEncoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/crypt/CryptUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/crypt/CryptUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/plain/PlainDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/plain/PlainDecoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/plain/PlainEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/plain/PlainEncoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/ArithmeticController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/arithmetic/ArithmeticController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/ArithmeticService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/arithmetic/service/ArithmeticService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/ArithmeticServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/arithmetic/service/ArithmeticServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/dto/ArithmeticRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/arithmetic/dto/ArithmeticRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/dto/ArithmeticRequestParameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/arithmetic/dto/ArithmeticRequestParameters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/dto/ArithmeticResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/arithmetic/dto/ArithmeticResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/model/ArithmeticExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/arithmetic/model/ArithmeticExpression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/model/ArithmeticResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/arithmetic/model/ArithmeticResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/model/EncodingType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/webservice/arithmetic/model/EncodingType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stefjen07/zip/ZipUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stefjen07/zip/ZipUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/assets/js/evaluator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/assets/js/evaluator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/com/stefjen07/ArithmeticTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/com/stefjen07/ArithmeticTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/com/stefjen07/XMLEncoderTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/com/stefjen07/XMLEncoderTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/test/com/stefjen07/CryptTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/com/stefjen07/CryptTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/test/com/stefjen07/RestTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/com/stefjen07/RestTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,9 +40,9 @@
       <list>
         <option value="AnnotationType" />
         <option value="Enum" />
-        <option value="JavaScript File" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -70,7 +82,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "MavenSettings",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
     "spring.configuration.checksum": "754e559692e66d48b216ce5265a0efe7",
     "vue.rearranger.settings.migration": "true"
   }
@@ -82,17 +94,17 @@
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/main/resources/public/assets/images" />
       <recent name="$PROJECT_DIR$/src/main/resources/public" />
       <recent name="$PROJECT_DIR$/src/main/resources/public/assets/samples" />
-      <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/main/resources/public/assets/js" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.stefjen07" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ArithmeticTests.evaluate">
+  <component name="RunManager" selected="Spring Boot.Main">
     <configuration name="pp_project" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -124,7 +136,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ArithmeticTests.evaluate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CryptTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pp-project" />
       <extension name="coverage">
         <pattern>
@@ -133,17 +145,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.stefjen07" />
-      <option name="MAIN_CLASS_NAME" value="com.stefjen07.ArithmeticTests" />
-      <option name="METHOD_NAME" value="evaluate" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CryptTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pp-project" />
-      <option name="PACKAGE_NAME" value="com.stefjen07" />
       <option name="MAIN_CLASS_NAME" value="com.stefjen07.CryptTests" />
+      <option name="METHOD_NAME" value="testEncryptionDecryptionWithPassword" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -169,11 +172,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RestTests.testCalculate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RestTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pp-project" />
       <option name="PACKAGE_NAME" value="com.stefjen07" />
       <option name="MAIN_CLASS_NAME" value="com.stefjen07.RestTests" />
       <option name="METHOD_NAME" value="testCalculate" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RestTests.testZipCalculate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pp-project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.stefjen07.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.stefjen07" />
+      <option name="MAIN_CLASS_NAME" value="com.stefjen07.RestTests" />
+      <option name="METHOD_NAME" value="testZipCalculate" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -188,12 +207,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ZipTests.testZipContent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ZipTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pp-project" />
       <option name="PACKAGE_NAME" value="com.stefjen07" />
       <option name="MAIN_CLASS_NAME" value="com.stefjen07.ZipTests" />
       <option name="METHOD_NAME" value="testZipContent" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -235,22 +254,20 @@
       <item itemvalue="JUnit.JSONEncoderTests" />
       <item itemvalue="JUnit.AllTests" />
       <item itemvalue="JUnit.JSONDecoderTests" />
-      <item itemvalue="JUnit.ArithmeticTests" />
-      <item itemvalue="JUnit.ArithmeticTests.evaluate" />
-      <item itemvalue="JUnit.RestTests.testCalculate" />
-      <item itemvalue="JUnit.ZipTests.testZipContent" />
+      <item itemvalue="JUnit.RestTests.testZipCalculate" />
       <item itemvalue="JUnit.CryptTests" />
+      <item itemvalue="JUnit.RestTests" />
       <item itemvalue="JUnit.ZipTests" />
       <item itemvalue="Maven.pp_project [test]" />
       <item itemvalue="Spring Boot.Main" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ArithmeticTests.evaluate" />
-        <item itemvalue="JUnit.RestTests.testCalculate" />
-        <item itemvalue="JUnit.ZipTests" />
-        <item itemvalue="JUnit.ZipTests.testZipContent" />
+        <item itemvalue="JUnit.RestTests.testZipCalculate" />
+        <item itemvalue="JUnit.RestTests" />
         <item itemvalue="JUnit.CryptTests" />
+        <item itemvalue="JUnit.ZipTests" />
+        <item itemvalue="JUnit.ZipTests" />
       </list>
     </recent_temporary>
   </component>
@@ -420,13 +437,28 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="dev" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/src/main/java" />
+    </ignored-roots>
     <MESSAGE value="XML Decoder" />
     <MESSAGE value="XML Encoder" />
     <MESSAGE value="Unit tests" />
@@ -444,7 +476,8 @@
     <MESSAGE value="REST tests and bugfixes" />
     <MESSAGE value="Abstract factory implemented" />
     <MESSAGE value="Fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix" />
+    <MESSAGE value="Encryption/decryption attached to web service" />
+    <option name="LAST_COMMIT_MESSAGE" value="Encryption/decryption attached to web service" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -463,6 +496,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/stefjen07/xml/XMLDecoder.java</url>
           <line>32</line>
           <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/stefjen07/crypt/CryptUtil.java</url>
+          <line>77</line>
+          <option name="timeStamp" value="53" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

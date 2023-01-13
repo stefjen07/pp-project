@@ -1,7 +1,7 @@
-package com.stefjen07.webservice.dto;
+package com.stefjen07.webservice.arithmetic.dto;
 
 import com.stefjen07.decoder.Decodable;
-import com.stefjen07.webservice.model.ArithmeticExpression;
+import com.stefjen07.webservice.arithmetic.model.ArithmeticExpression;
 import lombok.Data;
 import lombok.Getter;
 

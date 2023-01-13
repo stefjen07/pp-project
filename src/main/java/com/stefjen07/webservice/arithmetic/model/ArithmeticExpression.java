@@ -1,4 +1,4 @@
-package com.stefjen07.webservice.model;
+package com.stefjen07.webservice.arithmetic.model;
 
 import com.stefjen07.decoder.Decodable;
 import lombok.Data;

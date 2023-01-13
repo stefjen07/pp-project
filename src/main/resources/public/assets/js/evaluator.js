@@ -10,10 +10,14 @@ function downloadURI(uri, name) {
 function submitForm() {
     const inputOpt = document.getElementById("inputopt");
     const outputOpt = document.getElementById("outputopt");
+
     const inputEnc = document.getElementById("input-enc").checked;
     const inputArc = document.getElementById("input-arc").checked;
+    const inputPass = document.getElementById("input-pass").value;
     const outputEnc = document.getElementById("output-enc").checked;
     const outputArc = document.getElementById("output-arc").checked;
+    const outputPass = document.getElementById("output-pass").value;
+
     const filePicker = document.getElementById("file-picker");
 
     const formData = new FormData();
@@ -39,9 +43,11 @@ function submitForm() {
         inputType: inputType,
         inputEncryption: inputEnc,
         inputArchivation: inputArc,
+        inputPassword: inputPass,
         outputType: outputType,
         outputEncryption: outputEnc,
-        outputArchivation: outputArc
+        outputArchivation: outputArc,
+        outputPassword: outputPass
     })], { type: "application/json"});
 
     formData.append("request", filePicker.files[0]);
@@ -49,10 +55,10 @@ function submitForm() {
 
     const request = new XMLHttpRequest();
     request.open("POST", "/arithmetic/calculate");
-    request.onreadystatechange = function(){
+    request.onreadystatechange = function() {
         if (request.readyState !== 4) return;
         if (request.status !== 200 && request.status !== 304) {
-            alert('HTTP error ' + request.status);
+            alert('Error. Check your input and try again (' + request.status + ')');
             return;
         }
 

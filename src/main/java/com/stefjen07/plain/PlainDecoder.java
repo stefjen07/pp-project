@@ -4,8 +4,8 @@ import com.stefjen07.decoder.Decoder;
 import com.stefjen07.decoder.KeyedDecodingContainer;
 import com.stefjen07.decoder.SingleValueDecodingContainer;
 import com.stefjen07.decoder.UnkeyedDecodingContainer;
-import com.stefjen07.webservice.dto.ArithmeticRequest;
-import com.stefjen07.webservice.model.ArithmeticExpression;
+import com.stefjen07.webservice.arithmetic.dto.ArithmeticRequest;
+import com.stefjen07.webservice.arithmetic.model.ArithmeticExpression;
 import lombok.AllArgsConstructor;
 
 import java.util.ArrayList;

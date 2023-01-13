@@ -1,6 +1,6 @@
-package com.stefjen07.webservice.dto;
+package com.stefjen07.webservice.arithmetic.dto;
 
-import com.stefjen07.webservice.model.ArithmeticResult;
+import com.stefjen07.webservice.arithmetic.model.ArithmeticResult;
 import lombok.*;
 
 import java.util.List;

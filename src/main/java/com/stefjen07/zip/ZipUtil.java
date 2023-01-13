@@ -3,14 +3,14 @@ package com.stefjen07.zip;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.apache.commons.compress.archivers.zip.ZipArchiveInputStream;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-@Service
+@Component
 @RequiredArgsConstructor
 public class ZipUtil {
     @SneakyThrows

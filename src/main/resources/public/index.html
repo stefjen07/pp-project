@@ -17,9 +17,10 @@
                         <path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-2zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-4z"></path>
                     </svg></span><span>Arithmetic.cf</span></a><button class="navbar-toggler" data-bs-toggle="collapse"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
     </nav>
-    <form id="form" onsubmit="submitForm(); return false;">
-        <section class="py-5" style="padding-top: 91px;padding-right: 0;">
-            <div class="container">
+
+    <section class="py-5" style="padding-top: 91px;padding-right: 0;">
+        <div class="container">
+            <form id="form" onsubmit="submitForm(); return false;">
                 <div class="row mb-5">
                     <div class="col-md-8 col-xl-6 text-center mx-auto">
                         <p class="fw-bold text-success mb-2">Arithmetic Expressions Calculator</p>
@@ -50,7 +51,11 @@
                                 </optgroup>
                             </select>
                             <input class="form-control" id="file-picker" type="file" style="margin-top: 15px;margin-bottom: 11px;">
-                            <div class="form-check" style="padding-top: 10px;"><input class="form-check-input" type="checkbox" id="input-enc"><label class="form-check-label" for="input-enc" style="padding-top: 0;">Decryption</label></div>
+                            <div class="form-check" style="padding-top: 10px;"><input class="form-check-input" type="checkbox" id="input-enc" onclick="checkPassZone()"><label class="form-check-label" for="input-enc" style="padding-top: 0;">Decryption</label></div>
+                            <div id="input-pass-zone" style="padding-top: 10px; padding-bottom: 10px" hidden>
+                                <p style="color: rgb(187,187,187);">Password</p>
+                                <div class="form-check" style="padding-top: 0; padding-left: 0"><input class="form-text w-100" type="text" id="input-pass"></div>
+                            </div>
                             <div class="form-check"><input class="form-check-input" type="checkbox" id="input-arc"><label class="form-check-label" for="input-arc">Unzipping</label></div>
                         </div>
                     </div>
@@ -66,7 +71,11 @@
                                     <option value="xml">XML</option>
                                 </optgroup>
                             </select>
-                            <div class="form-check" style="padding-top: 10px;"><input class="form-check-input" type="checkbox" id="output-enc"><label class="form-check-label" for="output-enc" style="padding-top: 0;">Encryption</label></div>
+                            <div class="form-check" style="padding-top: 10px;"><input class="form-check-input" type="checkbox" id="output-enc" onclick="checkPassZone()"><label class="form-check-label" for="output-enc" style="padding-top: 0;">Encryption</label></div>
+                            <div id="output-pass-zone" style="padding-top: 10px; padding-bottom: 10px" hidden>
+                                <p style="color: rgb(187,187,187);">Password</p>
+                                <div class="form-check" style="padding-top: 0; padding-left: 0"><input class="form-text w-100" type="text" id="output-pass"></div>
+                            </div>
                             <div class="form-check"><input class="form-check-input" type="checkbox" id="output-arc"><label class="form-check-label" for="output-arc">Zipping</label></div>
                         </div>
                     </div>
@@ -76,9 +85,32 @@
                         <div><button class="btn btn-primary shadow d-block w-100" type="submit" style="margin-top: -70px;">Calculate</button></div>
                     </div>
                 </div>
+            </form>
+            <div class="row mb-5 pt-5">
+                <div class="col-md-8 col-xl-6 text-center mx-auto">
+                    <h2 class="fw-bold">Encryption/decryption</h2>
+                </div>
             </div>
-        </section>
-    </form>
+            <form>
+                <div class="row mb-5 d-flex justify-content-center" style="margin-top: 72px;">
+                    <div class="col-md-6 col-xl-4">
+                        <div>
+                            <p style="color: rgb(187,187,187);">File</p>
+                            <input class="form-control" id="enc-file-picker" type="file" style="margin-top: 15px;margin-bottom: 11px;">
+                            <p style="color: rgb(187,187,187);">Password</p>
+                            <div class="form-check" style="padding-top: 0; padding-left: 0"><input class="form-text w-100" type="text" id="enc-pass"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <div class="btn-group w-50">
+                        <button class="btn btn-primary shadow" type="button" onclick="crypt('encrypt'); return false;">Encrypt</button>
+                        <button class="btn btn-primary shadow" type="button" onclick="crypt('decrypt'); return false;">Decrypt</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
     <footer class="bg-dark">
         <div class="container py-4 py-lg-5">
             <div class="row justify-content-center">
@@ -110,6 +142,8 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bold-and-dark.js"></script>
     <script src="assets/js/evaluator.js"></script>
+    <script src="assets/js/crypt.js"></script>
+    <script src="assets/js/check-pass-zone.js"></script>
 </body>
 
 </html>
