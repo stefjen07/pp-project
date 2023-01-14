@@ -19,5 +19,7 @@ Supported workflows for input preparation:
 Bootstrap, HTML, CSS, JS
 ### Web Service
 REST
+### Hosting
+Deployed to GCP, the address: http://arithmetic.cf
 ### Patterns
 Abstract factory, Decorator, Builder, Composite
