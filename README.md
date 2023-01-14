@@ -3,7 +3,7 @@
 ## Info
 ### Parsing
 Supported formats: JSON, XML, plain text<br>
-Parsing is implemented from scratch
+Parsing is implemented for any class from scratch
 ### Arithmetic Calculating
 Supported operations: +, -, *, /, ^, parentheses, unary plus and minus
 ### ZIP and encoding
@@ -20,4 +20,4 @@ Bootstrap, HTML, CSS, JS
 ### Web Service
 REST
 ### Patterns
-Abstract factory, Decorator, Composite
+Abstract factory, Decorator, Builder, Composite
